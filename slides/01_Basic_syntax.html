@@ -1,0 +1,212 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <title>01 Intro | Example Content</title>
+
+    <link rel="icon" href="../img/zuehlke_logo.jpg">
+    <link rel="stylesheet" href="../css/reveal.css">
+    <link rel="stylesheet" href="../css/theme/zuehlke.css">
+
+    <!-- Theme used for syntax highlighting of code -->
+    <link rel="stylesheet" href="../lib/css/atom-one-dark.css">
+
+    <!-- Printing and PDF exports -->
+    <script>
+        var link = document.createElement('link');
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = window.location.search.match(/print-pdf/gi) ? '../css/print/pdf.css' : '../css/print/paper.css';
+        document.getElementsByTagName('head')[0].appendChild(link);
+    </script>
+</head>
+<body>
+<div class="reveal">
+    <div class="slides">
+        <section class="deck-slide">
+            <h1>Basic syntax</h1>
+        </section>
+        <section>
+            <h2>Why Kotlin</h2>
+            <ul>
+                <li>Pragmatic</li>
+                <li>Concise</li>
+                <li>Safe</li>
+                <li>Interoperable</li>
+            </ul>
+            <aside class="notes">
+                <p>Pragmatic: Designed to solve read-world problems, Focus on tooling (IDE support). Java to Kotlin Converter</p>
+                <p>Concise: Simple to read code, remove boilerplate code</p>
+                <p>Safe: Design of language prevents errors. Nullability. Type safety easier with type inference</p>
+                <p>Interoperable: Good alternative to Java. Runs on JVM. Can be compiled to Javascript. Android, IOS</p>
+            </aside>
+        </section>
+        <section>
+            <section>Functions</section>
+
+            <section>
+                <h3>Functions</h3>
+
+                Long form
+                <pre><code class="hljs" data-trim>
+	fun sum(a: Int, b: Int): Int {
+	  return a + b
+	}
+						</code></pre>
+                Short form
+                <pre><code class="hljs" data-trim>
+	fun sum(a: Int, b: Int) = a + b
+						</code></pre>
+                <aside class="notes">
+                    <p>no primitive types: all objects, Int, String, Boolean, Double...</p>
+                </aside>
+            </section>
+
+            <section>
+                <h4>Default values and named parameters</h4>
+
+                <pre><code class="hljs" data-trim>
+fun sum(a: Int = 10, b: Int): Int {
+	return a + b
+}
+						</code></pre>
+                Called with named parameters
+                <pre><code class="hljs" data-trim>
+sum(b = 2)
+sum(a = 2, b = 5)
+						</code></pre>
+                <aside class="notes">
+                    <p>If you define a parameter which follows a parameter with a default value cou can only call this method with it‘s named parameters.
+                    </p>
+                </aside>
+            </section>
+            <section>
+                <h4>Function type</h4>
+
+                <pre><code class="hljs" data-trim>
+							() -> Unit
+							(Int) -> Double
+							() -> () -> ()
+						</code></pre>
+                Lambda expressions
+                <pre><code class="hljs" data-trim>
+val divideByHalf: (Int) -> Int = { x -> x / 2 } //lambda expression
+val divideByHalf = fun(x: Int) = x/2 //anonymous function
+						</code></pre>
+                <aside class="notes">
+                    <p>
+                        Functions can have types and can be passed around.
+                    </p>
+                    <p>
+                        The big difference between them is the fact that lambda expressions return the value of the last
+                        statement in its body or Unit and unlabeled return is not working.
+                    </p>
+                </aside>
+            </section>
+            <section>
+                <h4>Higher order functions</h4>
+
+                <pre><code class="hljs" data-trim>
+							fun isOdd(x: Int) = x % 2 != 0
+							val listOfNumbers = mutableListOf&ltInt&gt(1,2,3,4)
+
+							listOfNumbers.filter(::isOdd)
+							listOfNumbers.filter { isOdd(it) }
+
+						</code></pre>
+                <aside class="notes">
+                    <p>
+                        Explain Mutability and Immutability for lists what is "mutableListOF()"
+                        Here ::isOdd is a value of function type (Int) -> Boolean.
+                        :: creates a member reference or a class reference
+                    </p>
+                </aside>
+            </section>
+        </section>
+
+        <section>
+            <section>
+                <h3>Classes</h3>
+                <div>Normal class</div>
+                <div>Data class</div>
+                <div>Sealed class</div>
+                <div>Enum class</div>
+            </section>
+            <section>
+                <h3>Normal class</h3>
+                <pre><code class="hljs" data-trim>
+							class Test
+
+							class Test constructor(variable: Any)
+
+							class Test constructor(variable: Any){
+							init{
+								val instanceVariable = variable
+							}}
+
+							class Person(val name: String, val hasSalary: Boolean){
+								constructor(employee: Employee) : this(employee.name, true)
+								constructor() :  this("",false)
+							}
+						</code></pre>
+                <aside class="notes">
+                    <p>
+                        init block can be used if there is some calculation involved or something additional needs to be done, than just assigning the value
+                        instead of defining the empty constructor we can also use default values in the primary constructor.
+                        If the primary constructor does not have any annotations or visibility modifiers, the constructor keyword can be omitted
+                    </p>
+                </aside>
+            </section>
+
+        <section>
+                <h3>Inheritance</h3>
+                <pre><code class="hljs" data-trim>
+                open class Base {
+                    open fun a(){}
+                    fun b(){}
+                }
+                </code></pre>
+            <pre><code class="hljs" data-trim>
+                class Derived : Base(){
+                final override fun a() {}
+                }
+
+                </code></pre>
+                <aside class="notes">
+                    <p>
+                        In order to inherit from a class it needs to be open ("open" keyword)
+                        To override a function from the parent the function in the parent also needs to be declared "open"
+                    </p>
+                </aside>
+            </section>
+
+
+        </section>
+    </div>
+</div>
+
+<script src="../lib/js/head.min.js"></script>
+<script src="../js/reveal.js"></script>
+
+<script>
+    // More info https://github.com/hakimel/reveal.js#configuration
+    Reveal.initialize({
+        history: true,
+
+        // More info https://github.com/hakimel/reveal.js#dependencies
+        dependencies: [
+            { src: '../plugin/markdown/marked.js' },
+            { src: '../plugin/markdown/markdown.js' },
+            { src: '../plugin/notes/notes.js', async: true },
+            {
+                src: '../plugin/highlight/highlight.js', async: true, callback: function () {
+                hljs.initHighlightingOnLoad();
+            }
+            }
+        ]
+    });
+</script>
+</body>
+</html>
