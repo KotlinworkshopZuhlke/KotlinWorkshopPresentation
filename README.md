@@ -1,8 +1,3 @@
-# Zühlke Reveal Template
+# Learn Kotlin for Zuehlke
 
-When creating your own presentation based off of this template, you need to 
-duplicate this repo into your own as follows:
-
-https://help.github.com/articles/duplicating-a-repository/
-
-Do not push directly on this repo!
+Find the Presentation on https://cehel.github.io/KotlinWorkshopPresentation/ 
