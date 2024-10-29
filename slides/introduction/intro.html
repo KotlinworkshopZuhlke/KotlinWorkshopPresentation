@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-    <title>End-to-End Example</title>
+    <title>Introduction</title>
 
     <link rel="icon" href="../../img/zuehlke_logo.jpg">
     <link rel="stylesheet" href="../../css/reveal.css">
@@ -18,7 +18,7 @@
         var link = document.createElement('link');
         link.rel = 'stylesheet';
         link.type = 'text/css';
-        link.href = window.location.search.match(/print-pdf/gi) ? '../css/print/pdf.css' : '../css/print/paper.css';
+        link.href = window.location.search.match(/print-pdf/gi) ? '../../css/print/pdf.css' : '../../css/print/paper.css';
         document.getElementsByTagName('head')[0].appendChild(link);
     </script>
 </head>
@@ -26,31 +26,17 @@
 <div class="reveal">
     <div class="slides">
         <section class="deck-slide">
-            <h1>End-to-End Example</h1>
+            <h1>Introduction</h1>
         </section>
+        <section data-external="gettingtoknow.html" class="white"></section>
+        <section data-external="benefitsofusingkotlin.html" class="white"></section>
+        <section data-external="coursestructure.html" class="white"></section>
     </div>
 </div>
 
 <script src="../../lib/js/head.min.js"></script>
 <script src="../../js/reveal.js"></script>
-
-<script>
-    // More info https://github.com/hakimel/reveal.js#configuration
-    Reveal.initialize({
-        history: true,
-
-        // More info https://github.com/hakimel/reveal.js#dependencies
-        dependencies: [
-            {src: '../plugin/markdown/marked.js'},
-            {src: '../plugin/markdown/markdown.js'},
-            {src: '../plugin/notes/notes.js', async: true},
-            {
-                src: '../plugin/highlight/highlight.js', async: true, callback: function () {
-                    hljs.initHighlightingOnLoad();
-                }
-            }
-        ]
-    });
-</script>
+<script src="../../plugin/highlight/highlight.js"></script>
+<script src="../../js/initialize.js"></script>
 </body>
 </html>

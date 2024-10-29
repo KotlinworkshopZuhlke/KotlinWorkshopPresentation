@@ -1,0 +1,45 @@
+<section class="white">
+    <h3>Collection</h3>
+    List
+    <pre><code class="kotlin" data-trim>
+                    listOf(2,3)
+                    mutableListOf&ltInt&gt()
+                </code></pre>
+    Set
+    <pre><code class="kotlin" data-trim>
+                    setOf(2,3)
+                    mutableSetOf&ltInt&gt()
+                </code></pre>
+    Map
+    <pre><code class="kotlin" data-trim>
+                    mapOf("Hello" to "Hallo", "Bye" to "Tschüss")
+                    mutableMapOf&ltString,String&gt()
+                </code></pre>
+</section>
+<section class="white">
+    <h3>Useful functions on collections</h3>
+    foreach{...}
+    <pre><code class="kotlin" data-trim>
+                    val numbers = listOf("one", "two", "three", "four")
+numbers.forEach {
+    println(it)
+}
+                </code></pre>
+    map{...}
+    <pre><code class="kotlin" data-trim>
+                    val numbers = setOf(1, 2, 3)
+println(numbers.map { it * 3 })
+//prints 3, 6, 9
+                </code></pre>
+    filter{...}
+    <pre><code class="kotlin" data-trim>
+                    val numbers = listOf("one", "two", "three", "four")
+val longerThan3 = numbers.filter { it.length > 3 }
+println(longerThan3)
+                </code></pre>
+</section>
+<section class="white">
+    <h3>Many more useful functions</h3>
+    <a href="https://kotlinlang.org/docs/reference/collection-transformations.html">
+        https://kotlinlang.org/docs/reference/collection-transformations.html</a>
+</section>

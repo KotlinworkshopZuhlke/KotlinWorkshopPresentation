@@ -15,7 +15,7 @@ var system = require( 'system' );
 var probePage = new WebPage();
 var printPage = new WebPage();
 
-var inputFile = system.args[1] || 'index.html?print-pdf';
+var inputFile = system.args[1] || 'basicsyntax.html?print-pdf';
 var outputFile = system.args[2] || 'slides.pdf';
 
 if( outputFile.match( /\.pdf$/gi ) === null ) {

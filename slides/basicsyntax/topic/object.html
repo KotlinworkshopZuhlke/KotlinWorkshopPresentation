@@ -1,0 +1,49 @@
+<section class="white">
+    <h3>Object</h3>
+    <div>Object as Singleton</div>
+    <div>Object expression as anonymous inner class</div>
+    <div>Companion objects as factory methods</div>
+</section>
+<!--Object-->
+<section class="white">
+    <h3>Singleton</h3>
+    <pre><code class="hljs" data-trim>
+                object Payroll {
+                    val allEmployees = arrayListOf&ltPerson&gt()
+                    fun calculateSalary() {
+                        for (person in allEmployees) {...}
+                    }
+                }
+
+                </code></pre>
+</section>
+<section class="white">
+    <h3>Anonymus inner class</h3>
+    <pre><code class="hljs" data-trim>
+object NoCaseFileComparator : Comparator&ltFile&gt {
+    override fun compare(file1: File, file2: File): Int {
+        return file1.path.compareTo(file2.path,
+                ignoreCase = true)
+} }
+                </code></pre>
+    <pre><code class="hljs" data-trim>
+val files = listOf(File("/Z"), File("/a"))
+println(files.sortedWith(NoCaseFileComparator))
+                </code></pre>
+</section>
+<section class="white">
+    <h3>Companion Object</h3>
+    <pre><code class="hljs" data-trim>
+class A {
+    companion object {
+        fun bar() {
+            println("Companion object called")
+         }
+     }
+}
+            </code></pre>
+    bar can be called like this:
+    <pre><code class="hljs" data-trim>
+                A.bar()
+                </code></pre>
+</section>
