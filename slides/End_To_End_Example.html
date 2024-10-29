@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-    <title>01 Intro | Example Content</title>
+    <title>End-to-End Example</title>
 
     <link rel="icon" href="../img/zuehlke_logo.jpg">
     <link rel="stylesheet" href="../css/reveal.css">
@@ -26,11 +26,8 @@
 <div class="reveal">
     <div class="slides">
         <section class="deck-slide">
-            <h1>Delegates<br />
-            Class and Property</h1>
+            <h1>End-to-End Example</h1>
         </section>
-
-
     </div>
 </div>
 
@@ -44,13 +41,13 @@
 
         // More info https://github.com/hakimel/reveal.js#dependencies
         dependencies: [
-            { src: '../plugin/markdown/marked.js' },
-            { src: '../plugin/markdown/markdown.js' },
-            { src: '../plugin/notes/notes.js', async: true },
+            {src: '../plugin/markdown/marked.js'},
+            {src: '../plugin/markdown/markdown.js'},
+            {src: '../plugin/notes/notes.js', async: true},
             {
                 src: '../plugin/highlight/highlight.js', async: true, callback: function () {
-                hljs.initHighlightingOnLoad();
-            }
+                    hljs.initHighlightingOnLoad();
+                }
             }
         ]
     });
