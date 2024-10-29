@@ -1,0 +1,94 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <title>Introduction</title>
+
+    <link rel="icon" href="../img/zuehlke_logo.jpg">
+    <link rel="stylesheet" href="../css/reveal.css">
+    <link rel="stylesheet" href="../css/theme/zuehlke.css">
+
+    <!-- Theme used for syntax highlighting of code -->
+    <link rel="stylesheet" href="../lib/css/atom-one-dark.css">
+
+    <!-- Printing and PDF exports -->
+    <script>
+        var link = document.createElement('link');
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = window.location.search.match(/print-pdf/gi) ? '../css/print/pdf.css' : '../css/print/paper.css';
+        document.getElementsByTagName('head')[0].appendChild(link);
+    </script>
+</head>
+<body>
+<div class="reveal">
+    <div class="slides">
+        <section class="deck-slide">
+            <h1>Introduction</h1>
+        </section>
+        <section>
+            <h2>Getting to Know Each Other</h2>
+            <ul>
+                <li>Introduce your self</li>
+                <li>Which technology are you using? </br><i>(Language, Framework, ...)</i></li>
+                <li>Why are you attending this workshop? </br><i>(expectation, goals, ...)</i></li>
+            </ul>
+        </section>
+        <section>
+            <h2>Benefits of using Kotlin</h2>
+            <ul>
+                <li>Pragmatic</li>
+                <li>Concise</li>
+                <li>Safe</li>
+                <li>Interoperable</li>
+                <li>Google Standard</li>
+                <li>Multiplatform</li>
+            </ul>
+            <aside class="notes">
+                <p>Pragmatic: Designed to solve real-world problems, Focus on tooling (IDE support). Java to Kotlin
+                    Converter</p>
+                <p>Concise: Simple to read code, avoid boilerplate code</p>
+                <p>Safe: Design of language prevents errors. Nullability. Type safety easier with type inference</p>
+                <p>Interoperable: Good alternative to Java. Runs on JVM. Can be compiled to Javascript. Android, iOS,
+                    Backend</p>
+                <p>Google Standard: for Android application</p>
+                <p>Kotlin Multiplatform: Write shared code for different platform, reducing the need for duplicates.
+                    Android, iOS, Web, and Backend</p>
+            </aside>
+        </section>
+        <section>
+            <h2>Course structure</h2>
+            <ul>
+                <li>Hands-on examples with each topic</li>
+                <li>Open Q&A / ask anytime</li>
+                <li>Collaborative learning approach</li>
+            </ul>
+        </section>
+    </div>
+</div>
+
+<script src="../lib/js/head.min.js"></script>
+<script src="../js/reveal.js"></script>
+
+<script>
+    // More info https://github.com/hakimel/reveal.js#configuration
+    Reveal.initialize({
+        history: true,
+
+        // More info https://github.com/hakimel/reveal.js#dependencies
+        dependencies: [
+            {src: '../plugin/markdown/marked.js'},
+            {src: '../plugin/markdown/markdown.js'},
+            {src: '../plugin/notes/notes.js', async: true},
+            {
+                src: '../plugin/highlight/highlight.js', async: true, callback: function () {
+                    hljs.initHighlightingOnLoad();
+                }
+            }
+        ]
+    });
+</script>
+</body>
+</html>
