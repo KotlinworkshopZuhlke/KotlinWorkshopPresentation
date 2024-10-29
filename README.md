@@ -2,10 +2,16 @@
 
 ## Pre-requisite
 
-> - Install node.js
-> - execute ```npm install```
+> - Install node.js on your machine
 
-# Learn Kotlin for Zuehlke
+> ```npm install``` \
+> ```npm start```
+>
+> _in case of problems, following can help:_ \
+> ```npm outdated``` \
+> ```npm audit```
 
-Find the Presentation on https://kotlinworkshopzuhlke.github.io/KotlinWorkshopPresentation/
+# Deployed slides can be found here
+
+https://kotlinworkshopzuhlke.github.io/KotlinWorkshopPresentation/
 
