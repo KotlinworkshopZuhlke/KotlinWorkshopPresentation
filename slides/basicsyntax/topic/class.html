@@ -100,6 +100,12 @@ enum class ViewState {
    DATA,
    LOADING
 }
+
+enum class State {
+   `USER NOT EXISTING`,
+   `USER IS AN HACKER`,
+   `USER IS A GUEST USER`
+}
         </code>
     </pre>
 </section>
@@ -263,6 +269,7 @@ class Derived : Base {
 <section class="white">
     <h3>Task 3</h3>
     <p>
+        Implement an AdminUser and a GuestUser - default activeState to true
         Following operations can be run on a User:
     </p>
     <ul>
@@ -270,10 +277,4 @@ class Derived : Base {
         <li>deactivate</li>
         <li>getUserInfo</li>
     </ul>
-</section>
-<section class="white">
-    <h3>Task 4</h3>
-    <p>
-        Implement an AdminUser and a GuestUser
-    </p>
 </section>
