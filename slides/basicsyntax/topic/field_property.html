@@ -1,8 +1,5 @@
 <section class="white"><h3>Fields and Properties</h3></section>
 <section class="white">
-    <h2>Fields and Properties</h2>
-</section>
-<section class="white">
     <h2>Understanding Fields and Properties</h2>
     <ul>
         <li>Kotlin properties provide a convenient way to define mutable (var) or immutable (val) variables with implicit accessors.</li>
@@ -57,20 +54,4 @@ var name: String = "Celine"
     private set
         </code>
     </pre>
-
-    <p>Custom getter and setter for property validation:</p>
-    <pre>
-        <code class="kotlin" data-trim>
-var name: String = "Celine"
-    get() = field
-    set(value) {
-        if (value.isNotEmpty()) {
-            field = value
-        }
-    }
-        </code>
-    </pre>
-    <aside class="notes">
-        <p>Custom getters and setters allow for enhanced control, such as validating the new value before setting it.</p>
-    </aside>
 </section>

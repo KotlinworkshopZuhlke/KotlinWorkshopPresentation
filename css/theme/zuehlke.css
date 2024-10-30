@@ -23,6 +23,19 @@
     /* Additional styling for better appearance */
     padding: 20px; /* Optional padding for inner content */
     box-sizing: border-box; /* Include padding in width/height calculations */
+
+    /* Ensure no margin collapse */
+    margin: 0; /* Reset margin */
+    position: relative; /* Allow absolute positioning of inner content if needed */
+}
+
+/* Optional: You can set a minimum height for better visibility */
+.white > h3 {
+    margin-top: 0; /* Prevent extra space at the top */
+}
+
+.white > pre {
+    margin: 0; /* Prevent extra space around pre elements */
 }
 
 .reveal .deck-slide.slide-background {
