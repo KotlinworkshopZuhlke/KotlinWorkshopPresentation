@@ -8,14 +8,14 @@
 <!------------------------------------------------------>
 <section class="white">
     <h2>Class Delegation</h2>
-</section>
-<section class="white">
-    <h2>Class Delegation</h2>
     <p>
         «The interaction of inherited classes with their parents can be surprising and unpredictable if the ancestor
         wasn't designed to be inherited from»
     </p>
     <i>Bjarne Stroustrup (creator of C++)</i>
+</section>
+<section class="white">
+    <h2>Class Delegation</h2>
     <ul>
         <li>
             The Delegation pattern has proven to be a good alternative to inheritance
@@ -158,14 +158,6 @@ fun main() {
 <section class="white">
     <h2>Standard Property delegates</h2>
     <p><b>observable()</b></p>
-    <ul>
-        <li>
-            takes an initial value and a handler as an argument
-        </li>
-        <li>
-            the handler gets called each time when we assign a value to the property
-        </li>
-    </ul>
     <pre>
         <code class="kotlin" data-trim>
 class User {
@@ -186,6 +178,10 @@ fun main() {
 }
         </code>
     </pre>
+    <aside class="notes">
+        takes an initial value and a handler as an argument
+        the handler gets called each time when we assign a value to the property
+    </aside>
 </section>
 <!------------------------------------------------------>
 <!------------------------------------------------------>
@@ -220,6 +216,8 @@ class MutableUser(val map: MutableMap&ltString&gt, Any?>) {
         <br>
         <b>Objective:</b> Extend the AdminUser and GuestUser classes by adding class and property delegation.
     </p>
+</section>
+<section class="white">
     <h4>
         <b>Adding Delegation to Manage User State and Logging</b>
     </h4>
@@ -233,6 +231,8 @@ class MutableUser(val map: MutableMap&ltString&gt, Any?>) {
             timestamp.
         </li>
     </ul>
+</section>
+<section class="white">
     <h4>
         <b>Use Property Delegation to Track User Property Changes</b>
     </h4>
