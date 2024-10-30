@@ -1,0 +1,112 @@
+<section class="white"><h3>Destructuring</h3></section>
+<!------------------------------------------------------>
+<!------------------------------------------------------>
+<!------------------------------------------------------>
+<!--Destructuring Overview-->
+<!------------------------------------------------------>
+<!------------------------------------------------------>
+<!------------------------------------------------------>
+<section class="white">
+    <h2>Destructuring</h2>
+    <p>
+        «Destructuring allows properties or values within data structures to be extracted and assigned to variables, simplifying access and improving code readability.»
+    </p>
+</section>
+<section class="white">
+    <h2>Destructuring in Kotlin</h2>
+    <ul>
+        <li>
+            Destructuring is a way to unpack values from data structures like classes, lists, or maps into individual variables.
+        </li>
+        <li>
+            It enhances readability by assigning properties directly to variables.
+        </li>
+        <li>
+            Supported natively in Kotlin, especially with data classes.
+        </li>
+        <li>
+            Reduces boilerplate by eliminating repetitive getter calls or index accesses.
+        </li>
+    </ul>
+</section>
+<section class="white">
+    <h2>Destructuring Example with Data Class</h2>
+</section>
+<!------------------------------------------------------>
+<!------------------------------------------------------>
+<!------------------------------------------------------>
+<!--Destructuring with Data Class-->
+<!------------------------------------------------------>
+<!------------------------------------------------------>
+<!------------------------------------------------------>
+<section class="white">
+    <h2>Destructuring with Data Classes</h2>
+    <pre>
+        <code class="kotlin" data-trim>
+data class User(val id: Int, val name: String, val email: String)
+
+fun main() {
+    val user = User(1, "Alice", "alice@example.com")
+
+    // Destructuring declaration
+    val (id, name, email) = user
+
+    println("ID: $id")        // Output: ID: 1
+    println("Name: $name")    // Output: Name: Alice
+    println("Email: $email")  // Output: Email: alice@example.com
+}
+        </code>
+    </pre>
+    <aside class="notes">
+        <p>
+            In this example, destructuring lets us unpack the User class properties into separate variables, enhancing
+            readability and efficiency.
+        </p>
+    </aside>
+</section>
+<!------------------------------------------------------>
+<!------------------------------------------------------>
+<!------------------------------------------------------>
+<!--Destructuring Collections-->
+<!------------------------------------------------------>
+<!------------------------------------------------------>
+<!------------------------------------------------------>
+<section class="white">
+    <h2>Destructuring in Collections</h2>
+    <p><b>Example with Lists</b></p>
+    <pre>
+        <code class="kotlin" data-trim>
+val languages = listOf("Kotlin", "Java", "Python")
+
+val (first, second, third) = languages
+
+println(first)  // Output: Kotlin
+println(second) // Output: Java
+println(third)  // Output: Python
+        </code>
+    </pre>
+    <aside class="notes">
+        <p>
+            This demonstrates destructuring on lists, where values are unpacked into individual variables.
+        </p>
+    </aside>
+</section>
+<section class="white">
+    <h2>Destructuring with Loops</h2>
+    <p><b>Example with Maps</b></p>
+    <pre>
+        <code class="kotlin" data-trim>
+val map = mapOf(1 to "one", 2 to "two")
+
+for ((key, value) in map) {
+    println("$key -> $value")
+}
+        </code>
+    </pre>
+    <aside class="notes">
+        <p>
+            Destructuring in loops makes iterating over maps straightforward, with keys and values directly accessible
+            within the loop.
+        </p>
+    </aside>
+</section>

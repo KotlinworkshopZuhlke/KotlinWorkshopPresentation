@@ -1,111 +1,279 @@
-<section class="white">
-    <h3>Class</h3>
-    <div>Normal class</div>
-    <div>Data class</div>
-    <div>Sealed class</div>
-    <div>Enum class</div>
-</section>
-<!--Class-->
+<script src="../../js/initialize.js"></script>
+<section class="white"><h3>Class</h3></section>
+<!------------------------------------------------------>
+<!------------------------------------------------------>
+<!------------------------------------------------------>
+<!--Normal Class-->
+<!------------------------------------------------------>
+<!------------------------------------------------------>
+<!------------------------------------------------------>
 <section class="white">
     <h3>Normal class</h3>
-    <pre><code class="hljs" data-trim>
-							class Test
+    <pre>
+        <code class="kotlin" data-trim>
+class Test
 
-							class Test constructor(variable: Any)
+class Test constructor(variable: Any)
 
-							class Test constructor(variable: Any){
-							init{
-								val instanceVariable = variable
-							}}
+class Test constructor(variable: Any) {
+    init{
+        val instanceVariable = variable
+    }
+}
 
-							class Person(val name: String, val hasSalary: Boolean){
-								constructor(employee: Employee) : this(employee.name, true)
-								constructor() :  this("",false)
-							}
-						</code></pre>
+class Person(val name: String, val hasSalary: Boolean) {
+    constructor(employee: Employee) : this(employee.name, true)
+    constructor() : this("",false)
+}
+        </code>
+    </pre>
     <aside class="notes">
         <p>
-            init block can be used if there is some calculation involved or something additional needs
-            to be
-            done, than just assigning the value
-            instead of defining the empty constructor we can also use default values in the primary
-            constructor.
-            If the primary constructor does not have any annotations or visibility modifiers, the
-            constructor keyword can be omitted
+            A) This defines a class named Test with no properties or methods.
+
+            B) This class has a primary constructor that takes a single parameter of type Any. The constructor keyword
+            is
+            optional here.
+
+            C) This class also has a primary constructor and an init block that initialize a local variable
+            (instanceVariable) with the constructor's parameter. The init block runs every time an instance of the class
+            is
+            created.
+
+            D) This class has a primary constructor that takes two parameters: name (of type String) and hasSalary (of
+            type Boolean).
+            It has two secondary constructors:
+            One that takes an Employee object and initializes the name with employee.name and sets hasSalary to true.
+            A default constructor that initializes name to an empty string and hasSalary to false.
+        </p>
+    </aside>
+</section>
+<!------------------------------------------------------>
+<!------------------------------------------------------>
+<!------------------------------------------------------>
+<!--Data Class-->
+<!------------------------------------------------------>
+<!------------------------------------------------------>
+<!------------------------------------------------------>
+<section class="white">
+    <h3>Data class</h3>
+    <pre>
+        <code class="kotlin" data-trim>
+data class User(val name: String, val age: Int)
+
+val chris = User("Chris", 36)
+val copy = chris.copy(age = 21)
+println(copy.equals(chris)) //prints false
+        </code>
+    </pre>
+    <aside class="notes">
+        <p>
+            Kotlin generates automatically: getters, setters, toString, hashCode, equals, copy
         </p>
     </aside>
 </section>
 <section class="white">
-    <h3>Inheritance</h3>
-    <pre><code class="hljs" data-trim>
-                open class Base () {
-                    open fun a(){}
-                    open val c: Int = 1
-                    fun b(){}
-                }
-                </code></pre>
-    <pre><code class="hljs" data-trim>
-                class Derived : Base(){
-                    final override fun a() {}
-                    override val c = 3
-                }
-                </code></pre>
+    <h3>Task 1</h3>
+    <p>
+        Create a User that contains the following properties:
+    </p>
+    <ul>
+        <li>Int id</li>
+        <li>String name</li>
+        <li>String email</li>
+        <li>Boolean (default to true) isActive</li>
+    </ul>
+</section>
+<!------------------------------------------------------>
+<!------------------------------------------------------>
+<!------------------------------------------------------>
+<!--Enum-->
+<!------------------------------------------------------>
+<!------------------------------------------------------>
+<!------------------------------------------------------>
+<section class="white">
+    <h3>Enum</h3>
+    <pre>
+        <code class="kotlin" data-trim>
+enum class ViewState {
+   ERROR,
+   DATA,
+   LOADING
+}
+        </code>
+    </pre>
+</section>
+<!------------------------------------------------------>
+<!------------------------------------------------------>
+<!------------------------------------------------------>
+<!--Sealed Class-->
+<!------------------------------------------------------>
+<!------------------------------------------------------>
+<!------------------------------------------------------>
+<section class="white">
+    <h3>Sealed classes</h3>
+    <pre>
+        <code class="kotlin" data-trim>
+sealed class ViewState {
+    object Error: ViewState()
+    object Loading: ViewState()
+    data class Data(val someData: SomeData) : ViewState()
+}
+
+fun handleViewState(viewState: ViewState): Unit = when(viewState){
+    is ViewState.Error -> { /* show error screen */ }
+    is ViewState.Loading -> { /* show loading indicator */ }
+    is ViewState.Data -> { handleData(viewState.someData)}
+}
+        </code>
+    </pre>
+    <aside class="notes">
+        <p>
+            Sealed classes are an extension of enums, they can contain state.
+            A Sealed classes can group any type declaration: class, object
+        </p>
+        <p>Is usually useful in combination with "when"</p>
+    </aside>
+</section>
+<section class="white">
+    <h3>Task 2</h3>
+    <p>
+        Define UserState's:
+    </p>
+    <ul>
+        <li>Active</li>
+        <li>Inactive</li>
+        <li>Suspended</li>
+    </ul>
+</section>
+<!------------------------------------------------------>
+<!------------------------------------------------------>
+<!------------------------------------------------------>
+<!--Open Class-->
+<!------------------------------------------------------>
+<!------------------------------------------------------>
+<!------------------------------------------------------>
+<section class="white">
+    <h3>Open class</h3>
+    <pre>
+        <code class="kotlin" data-trim>
+open class Base () {
+    open fun a() {}
+    open val c: Int = 1
+    fun b() {}
+}
+
+class Derived : Base(){
+    final override fun a() {}
+    override val c = 3
+}
+        </code>
+    </pre>
     <aside class="notes">
         <p>
             In order to inherit from a class it needs to be open ("open" keyword)
             To override a function from the parent the function in the parent also needs to be declared
-            "open"</p>
-        <p>An overridden function is itself open. If you want to prohibit this, use final</p>
-        <p>val basically defines a getter and a setter, so it can be overridden</p>
+            "open"
+        </p>
+        <p>
+            An overridden function is itself is still open. If you want to prohibit this, use final
+        </p>
+        <p>
+            val basically defines a getter and a setter, so it can be overridden
+        </p>
     </aside>
 </section>
+<!------------------------------------------------------>
+<!------------------------------------------------------>
+<!------------------------------------------------------>
+<!--Abstract Class-->
+<!------------------------------------------------------>
+<!------------------------------------------------------>
+<!------------------------------------------------------>
 <section class="white">
-    <h3>Data class</h3>
-    <pre><code class="hljs" data-trim>
-                data class User(val name: String, val age: Int)
-            </code></pre>
-    equals, copy, toString, getters and setter autogenerated:
-    <pre><code class="hljs" data-trim>
-                val user = User("Chris", 36)
-                val copy = user.copy(age = 21)
-                println(copy.equals(user)) //prints false
-            </code></pre>
-    <aside class="notes">
-        <p>Kotlin generates automatically: getters, setters, toString, hashCode, equals, copy</p>
-    </aside>
-</section>
-<section class="white">
-    <h3>Enum</h3>
+    <h3>Abstract class</h3>
+    <pre>
+        <code class="kotlin" data-trim>
+abstract class Base {
+    abstract fun a()
+    open val c: Int = 1
+    fun b() {} // Regular method
+}
 
-    <pre><code class="hljs" data-trim>
-                 enum class ViewState{
-                    ERROR,
-                    DATA,
-                    LOADING
-                  }
-            </code></pre>
+open class Derived : Base() {
+    override fun a() { /* Implementation of abstract method */ }
+    override val c = 3 // Overrides property 'c'
+}
+
+class SubDerived : Derived() {
+    override fun a() {
+        super.a()
+        println(c)
+    }
+
+    override val c: Int
+        get() = super.c + 1
+}
+
+fun main() {
+    val subDerived = SubDerived();
+    subDerived.a()
+}
+        </code>
+    </pre>
+    <aside class="notes">
+        <p>
+            To inherit from an abstract class, it must be marked with the "abstract" keyword.
+            Abstract methods and members must be implemented by subclasses.
+            Open properties or methods provide a default implementation that can be overridden.
+        </p>
+    </aside>
+</section>
+<!------------------------------------------------------>
+<!------------------------------------------------------>
+<!------------------------------------------------------>
+<!--Interface Class-->
+<!------------------------------------------------------>
+<!------------------------------------------------------>
+<!------------------------------------------------------>
+<section class="white">
+    <h3>Interface</h3>
+    <pre>
+        <code class="kotlin" data-trim>
+interface Base {
+    fun a()
+    val c: Int
+}
+
+class Derived : Base {
+    override fun a() {
+        println("Implementation of method a in Derived")
+    }
+
+    override val c: Int = 42
+}
+        </code>
+    </pre>
+    <aside class="notes">
+        <p>
+            methods and members must be implemented by subclasses
+        </p>
+    </aside>
 </section>
 <section class="white">
-    <h3>Sealed classes</h3>
-
-    <pre><code class="hljs" data-trim>
-                    sealed class ViewState {
-                        object Error: ViewState()
-                        object Loading: ViewState()
-                        data class Data(val someData: SomeData) : ViewState()
-                    }
-            </code></pre>
-    <pre><code class="hljs" data-trim>
-                fun handleViewState(viewState: ViewState): Unit = when(viewState){
-                    is ViewState.Error -> { /* show error screen */ }
-                    is ViewState.Loading -> { /* show loading indicator */ }
-                    is ViewState.Data -> { handleData(viewState.someData)}
-                }
-            </code></pre>
-    <aside class="notes">
-        <p>Sealed classes are an extension of enums, they can contain state. A Sealed classes can group
-            any
-            type declaration: class, object</p>
-        <p>Is usually useful in combination with "when"</p>
-    </aside>
+    <h3>Task 3</h3>
+    <p>
+        Following operations can be run on a User:
+    </p>
+    <ul>
+        <li>activate</li>
+        <li>deactivate</li>
+        <li>getUserInfo</li>
+    </ul>
+</section>
+<section class="white">
+    <h3>Task 4</h3>
+    <p>
+        Implement an AdminUser and a GuestUser
+    </p>
 </section>

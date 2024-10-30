@@ -1,117 +1,166 @@
-<section class="white"><h3>Function</h3></section>
+<section class="white"><h3>Functions</h3></section>
 <section class="white">
-    <h3>Functions</h3>
+    <h2>Functions</h2>
+    <p>
+        «Kotlin provides a variety of ways to define and work with functions, including lambdas, function references,
+        and higher-order functions.»
+    </p>
+</section>
 
-    Long form
-    <pre><code class="hljs" data-trim>
-	fun sum(a: Int, b: Int): Int {
-	  return a + b
-	}
-						</code></pre>
-    Short form
-    <pre><code class="hljs" data-trim>
-	fun sum(a: Int, b: Int) = a + b
-						</code></pre>
+<!------------------------------------------------------>
+<!------------------------------------------------------>
+<!------------------------------------------------------>
+<!--Basic Syntax-->
+<!------------------------------------------------------>
+<!------------------------------------------------------>
+<!------------------------------------------------------>
+<section class="white">
+    <h2>Basic Function Syntax</h2>
+    <p>Functions can be defined in long and short forms:</p>
+    <h3>Long Form</h3>
+    <pre><code class="kotlin" data-trim>
+fun sum(a: Int, b: Int): Int {
+    return a + b
+}
+    </code></pre>
+    <h3>Short Form</h3>
+    <pre><code class="kotlin" data-trim>
+fun sum(a: Int, b: Int) = a + b
+    </code></pre>
     <aside class="notes">
-        <p>no primitive types: all objects, Int, String, Boolean, Double...</p>
+        <p>Kotlin has no primitive types, so all types (e.g., Int, String, Boolean) are objects.</p>
     </aside>
 </section>
-<section class="white">
-    <h3>Default values and named parameters</h3>
 
-    <pre><code class="hljs" data-trim>
+<!------------------------------------------------------>
+<!------------------------------------------------------>
+<!------------------------------------------------------>
+<!--Default Values and Named Parameters-->
+<!------------------------------------------------------>
+<!------------------------------------------------------>
+<!------------------------------------------------------>
+<section class="white">
+    <h2>Default Values and Named Parameters</h2>
+    <pre><code class="kotlin" data-trim>
 fun sum(a: Int = 10, b: Int): Int {
-	return a + b
+    return a + b
 }
-						</code></pre>
-    Called with named parameters
-    <pre><code class="hljs" data-trim>
+    </code></pre>
+    <p>Calling with named parameters:</p>
+    <pre><code class="kotlin" data-trim>
 sum(b = 2)
 sum(a = 2, b = 5)
-						</code></pre>
+    </code></pre>
     <aside class="notes">
-        <p>If you define a parameter which follows a parameter with a default value cou can only call this
-            method with it‘s named parameters.
-        </p>
+        <p>If a parameter with a default value is followed by a parameter without one, the function must be called with named parameters.</p>
     </aside>
 </section>
-<section class="white">
-    <h3>Function type</h3>
-    <pre><code class="hljs" data-trim>
-							() -> Unit
-							(Int) -> Double
-							() -> () -> ()
-						</code></pre>
-    Lambda expressions
-    <pre><code class="hljs" data-trim>
-val divideByHalf: (Int) -> Int = { x -> x / 2 } //lambda expression
-val divideByHalf = fun(x: Int) = x/2 //anonymous function
-						</code></pre>
-    <aside class="notes">
-        <p>
-            Functions can have types and can be passed around.
-        </p>
-        <p>
-            The big difference between them is the fact that lambda expressions return the value of the last
-            statement in its body or Unit and unlabeled return is not working.
-        </p>
-    </aside>
-</section>
-<section class="white">
-    <h3>Higher order functions</h3>
-    <pre><code class="hljs" data-trim>
-							fun isOdd(x: Int) = x % 2 != 0
-							val listOfNumbers = mutableListOf&ltInt&gt(1,2,3,4)
 
-							listOfNumbers.filter(::isOdd)
-							listOfNumbers.filter { isOdd(it) }
-
-						</code></pre>
+<!------------------------------------------------------>
+<!------------------------------------------------------>
+<!------------------------------------------------------>
+<!--Function Types and Lambda Expressions-->
+<!------------------------------------------------------>
+<!------------------------------------------------------>
+<!------------------------------------------------------>
+<section class="white">
+    <h2>Function Types and Lambda Expressions</h2>
+    <pre><code class="kotlin" data-trim>
+() -&gt; Unit
+(Int) -&gt; Double
+() -&gt; () -&gt; ()
+    </code></pre>
+    <p>Lambda expressions:</p>
+    <pre><code class="kotlin" data-trim>
+val divideByHalf: (Int) -&gt; Int = { x -&gt; x / 2 } // lambda expression
+val divideByHalf = fun(x: Int) = x / 2 // anonymous function
+    </code></pre>
     <aside class="notes">
-        <p>
-            Explain Mutability and Immutability for lists what is "mutableListOF()"
-            Here ::isOdd is a value of function type (Int) -> Boolean.
-            :: creates a member reference or a class reference
-        </p>
+        <p>Functions in Kotlin can be treated as types and passed around. Lambda expressions return the last statement in their body.</p>
     </aside>
 </section>
+
+<!------------------------------------------------------>
+<!------------------------------------------------------>
+<!------------------------------------------------------>
+<!--Higher Order Functions-->
+<!------------------------------------------------------>
+<!------------------------------------------------------>
+<!------------------------------------------------------>
 <section class="white">
-    <section class="white">
-        <h2>Std Lib Scope functions</h2></section>
-    <section class="white">
-        <h3>Scope functions</h3>
-        <ul>
-            <li><b>let</b></li>
-            <li><b>apply</b></li>
-            <li>run</li>
-            <li>also</li>
-            <li>with</li>
-            <li>takeif</li>
-        </ul>
-    </section>
-    <section class="white">
-        <h3>Let</h3>
-        <pre><code class="kotlin" data-trim>fun &ltT, R&gt T.let(f: (T) -> R): R = f(this)
-                    </code></pre>
-        <p>Is very useful with the null-check operator ?</p>
-        <pre><code class="kotlin" data-trim>val map : Map&ltString, String&gt = ...
-val config = map[key]config?.let {
-//This block will not be exectuted if „config“ is null
+    <h2>Higher-Order Functions</h2>
+    <pre><code class="kotlin" data-trim>
+fun isOdd(x: Int) = x % 2 != 0
+val listOfNumbers = mutableListOf&lt;Int&gt;(1, 2, 3, 4)
+
+listOfNumbers.filter(::isOdd)
+listOfNumbers.filter { isOdd(it) }
+    </code></pre>
+    <aside class="notes">
+        <p>Demonstrates mutability with lists using <code>mutableListOf()</code>. The <code>::</code> operator creates a reference to the function.</p>
+    </aside>
+</section>
+
+<!------------------------------------------------------>
+<!------------------------------------------------------>
+<!------------------------------------------------------>
+<!--Scope Functions in the Std Lib-->
+<!------------------------------------------------------>
+<!------------------------------------------------------>
+<!------------------------------------------------------>
+<section class="white">
+    <h2>Standard Library Scope Functions</h2>
+    <ul>
+        <li><b>let</b></li>
+        <li><b>apply</b></li>
+        <li>run</li>
+        <li>also</li>
+        <li>with</li>
+        <li>takeIf</li>
+    </ul>
+</section>
+
+<!------------------------------------------------------>
+<!------------------------------------------------------>
+<!------------------------------------------------------>
+<!--Scope Function: Let-->
+<!------------------------------------------------------>
+<!------------------------------------------------------>
+<!------------------------------------------------------>
+<section class="white">
+    <h2>Let</h2>
+    <pre><code class="kotlin" data-trim>
+fun &lt;T, R&gt; T.let(f: (T) -&gt; R): R = f(this)
+    </code></pre>
+    <p>Useful with the null-check operator <code>?.</code></p>
+    <pre><code class="kotlin" data-trim>
+val map: Map&lt;String, String&gt; = ...
+val config = map[key]
+config?.let {
+// This block executes only if "config" is not null
 }
-                    </code></pre>
-    </section>
-    <section class="white">
-        <h3>Apply</h3>
-        <pre><code class="kotlin" data-trim>fun &ltT&gt T.apply(f: T.() -> Unit): T { f(); return this }
-                    </code></pre>
-        <p>With ‘apply()’ we can substitute the ‘Builder’ pattern or simply make code more readable
-        </p>
-        <pre><code class="kotlin" data-trim>val recyclerView: ReyclerView = RecyclerView().apply{
-    setHasFixedSize = true
-    layoutManager = LinearLayoutManager(context)
-    adapter = MyAdapter(context)
-    clearOnScrollListener()}
+    </code></pre>
+</section>
+
+<!------------------------------------------------------>
+<!------------------------------------------------------>
+<!------------------------------------------------------>
+<!--Scope Function: Apply-->
+<!------------------------------------------------------>
+<!------------------------------------------------------>
+<!------------------------------------------------------>
+<section class="white">
+    <h2>Apply</h2>
+    <pre><code class="kotlin" data-trim>
+fun &lt;T&gt; T.apply(f: T.() -&gt; Unit): T { f(); return this }
+    </code></pre>
+    <p>Substitutes the Builder pattern for more readable code:</p>
+    <pre><code class="kotlin" data-trim>
+val recyclerView: RecyclerView = RecyclerView().apply {
+    setHasFixedSize = true
+    layoutManager = LinearLayoutManager(context)
+    adapter = MyAdapter(context)
+    clearOnScrollListener()
 }
-                    </code></pre>
-    </section>
+    </code></pre>
 </section>

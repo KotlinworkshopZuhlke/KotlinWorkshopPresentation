@@ -384,10 +384,10 @@
 				throw 'The reveal.js Markdown plugin requires marked to be loaded';
 			}
 
-			if( typeof hljs !== 'undefined' ) {
+			if( typeof kotlin !== 'undefined' ) {
 				marked.setOptions({
 					highlight: function( code, lang ) {
-						return hljs.highlightAuto( code, [lang] ).value;
+						return kotlin.highlightAuto( code, [lang] ).value;
 					}
 				});
 			}

@@ -1,45 +1,56 @@
 <section class="white">
     <h3>Collection</h3>
-    List
+    <h4>List</h4>
     <pre><code class="kotlin" data-trim>
-                    listOf(2,3)
-                    mutableListOf&ltInt&gt()
-                </code></pre>
-    Set
+listOf(2, 3)
+mutableListOf&lt;Int&gt;()
+    </code></pre>
+
+    <h4>Set</h4>
     <pre><code class="kotlin" data-trim>
-                    setOf(2,3)
-                    mutableSetOf&ltInt&gt()
-                </code></pre>
-    Map
+setOf(2, 3)
+mutableSetOf&lt;Int&gt;()
+    </code></pre>
+
+    <h4>Map</h4>
     <pre><code class="kotlin" data-trim>
-                    mapOf("Hello" to "Hallo", "Bye" to "Tschüss")
-                    mutableMapOf&ltString,String&gt()
-                </code></pre>
+mapOf("Hello" to "Hallo", "Bye" to "Tschüss")
+mutableMapOf&lt;String, String&gt;()
+    </code></pre>
 </section>
+
 <section class="white">
-    <h3>Useful functions on collections</h3>
-    foreach{...}
+    <h3>Useful Functions on Collections</h3>
+
+    <h4>forEach { ... }</h4>
     <pre><code class="kotlin" data-trim>
-                    val numbers = listOf("one", "two", "three", "four")
+val numbers = listOf("one", "two", "three", "four")
 numbers.forEach {
     println(it)
 }
-                </code></pre>
-    map{...}
+    </code></pre>
+
+    <h4>map { ... }</h4>
     <pre><code class="kotlin" data-trim>
-                    val numbers = setOf(1, 2, 3)
+val numbers = setOf(1, 2, 3)
 println(numbers.map { it * 3 })
-//prints 3, 6, 9
-                </code></pre>
-    filter{...}
+// prints 3, 6, 9
+    </code></pre>
+
+    <h4>filter { ... }</h4>
     <pre><code class="kotlin" data-trim>
-                    val numbers = listOf("one", "two", "three", "four")
+val numbers = listOf("one", "two", "three", "four")
 val longerThan3 = numbers.filter { it.length > 3 }
 println(longerThan3)
-                </code></pre>
+    </code></pre>
 </section>
+
 <section class="white">
-    <h3>Many more useful functions</h3>
-    <a href="https://kotlinlang.org/docs/reference/collection-transformations.html">
-        https://kotlinlang.org/docs/reference/collection-transformations.html</a>
+    <h3>Many More Useful Functions</h3>
+    <p>
+        For more information, visit the official Kotlin documentation:
+        <a href="https://kotlinlang.org/docs/reference/collection-transformations.html">
+            https://kotlinlang.org/docs/reference/collection-transformations.html
+        </a>
+    </p>
 </section>

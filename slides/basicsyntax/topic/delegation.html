@@ -1,0 +1,246 @@
+<section class="white"><h3>Delegation</h3></section>
+<!------------------------------------------------------>
+<!------------------------------------------------------>
+<!------------------------------------------------------>
+<!--Class Delegation-->
+<!------------------------------------------------------>
+<!------------------------------------------------------>
+<!------------------------------------------------------>
+<section class="white">
+    <h2>Class Delegation</h2>
+    <p>
+        «The interaction of inherited classes with their parents can be surprising and unpredictable if the ancestor
+        wasn't designed to be inherited from»
+    </p>
+    <i>Bjarne Stroustrup (creator of C++)</i>
+</section>
+<section class="white">
+    <h2>Class Delegation</h2>
+    <ul>
+        <li>
+            The Delegation pattern has proven to be a good alternative to inheritance
+        </li>
+        <li>
+            Interaction with inherited classes can be unpredictable if the ancestor was not designed to
+            be inherited from
+        </li>
+        <li>
+            Kotlin supports it natively – no need to write the delegation explicitly
+        </li>
+        <li>
+            You can delegate multiple classes
+        </li>
+        <li>
+            Only share interface methods (not other methods and variables)
+        </li>
+    </ul>
+</section>
+<section class="white">
+    <h2>Delegation design pattern</h2>
+</section>
+<!------------------------------------------------------>
+<!------------------------------------------------------>
+<!------------------------------------------------------>
+<!--Class Delegation-->
+<!------------------------------------------------------>
+<!------------------------------------------------------>
+<!------------------------------------------------------>
+<section class="white">
+    <h2>Class delegation</h2>
+    <pre>
+        <code class="kotlin" data-trim>
+interface Base {
+    fun print()
+}
+
+class BaseImpl1(val x: Int) : Base {
+    override fun print() { print(x) }
+}
+
+class Derived(b: Base) : Base by b
+
+fun main() {
+    val b = BaseImpl1(10)
+    Derived(b).print() // 10
+}
+        </code>
+    </pre>
+    <aside class="notes">
+        <p>
+            An alternative to inheritance, where an object delegates responsibilities to another object.
+            This promotes composition over inheritance, leading to more flexible and maintainable code.
+        </p>
+    </aside>
+
+</section>
+<!------------------------------------------------------>
+<!------------------------------------------------------>
+<!------------------------------------------------------>
+<!--Property Delegation-->
+<!------------------------------------------------------>
+<!------------------------------------------------------>
+<!------------------------------------------------------>
+<section class="white">
+    <h2>Property Delegation</h2>
+    <pre>
+        <code class="kotlin" data-trim>
+import kotlin.reflect.KProperty
+
+class Delegate {
+    operator fun getValue(
+        thisRef: Any?,
+        property: KProperty<*>
+    ): String { return "$thisRef, delegating '${property.name}' to me!"}
+
+    operator fun setValue(
+        thisRef: Any?,
+        property: KProperty<*>,
+        value: String
+    ) { println("$value is assigned to '${property.name}' in $thisRef.") }
+}
+
+class Example {
+    var p: String by Delegate()
+}
+
+fun main() {
+    val e = Example()
+	println(e.p) // “Example@33a17727, delegating ‘p’ to me!”
+    e.p = "X" // X is assigned to 'p' in Example@2b71fc7e.
+}
+        </code>
+    </pre>
+    <aside class="notes">
+        <p>
+            Provides a concrete example of a delegate class that handles property getting and setting,
+            illustrating how to use operator overloading.
+        </p>
+    </aside>
+</section>
+<!------------------------------------------------------>
+<!------------------------------------------------------>
+<!------------------------------------------------------>
+<!--Standard Property Delegation - lazy-->
+<!------------------------------------------------------>
+<!------------------------------------------------------>
+<!------------------------------------------------------>
+<section class="white">
+    <h2>Standard Property delegates</h2>
+    <p><b>lazy()</b></p>
+    <pre>
+        <code class="kotlin" data-trim>
+val lazyValue: String by lazy {
+    println("computed!")
+    "Hello"
+}
+
+fun main() {
+    println(lazyValue)
+    println(lazyValue)
+    // prints: "computed" only once
+}
+        </code>
+    </pre>
+    <aside class="notes">
+        <p>
+            Describes the lazy initialization pattern, allowing a property to be computed only when accessed for the
+            first time.
+        </p>
+    </aside>
+</section>
+<!------------------------------------------------------>
+<!------------------------------------------------------>
+<!------------------------------------------------------>
+<!--Class Delegation - observable-->
+<!------------------------------------------------------>
+<!------------------------------------------------------>
+<!------------------------------------------------------>
+<section class="white">
+    <h2>Standard Property delegates</h2>
+    <p><b>observable()</b></p>
+    <ul>
+        <li>
+            takes an initial value and a handler as an argument
+        </li>
+        <li>
+            the handler gets called each time when we assign a value to the property
+        </li>
+    </ul>
+    <pre>
+        <code class="kotlin" data-trim>
+class User {
+    var name: String by observable("no name") { property, oldValue, newValue ->
+        println("Name changed from '$oldValue' to '$newValue'")
+    }
+}
+
+fun main() {
+    val user = User()
+
+    // Initially, the name is "no name"
+    println(user.name) // Output: no name
+
+    // Changing the name
+    user.name = "Alice" // Output: Name changed from 'no name' to 'Alice'
+    user.name = "Bob"   // Output: Name changed from 'Alice' to 'Bob'
+}
+        </code>
+    </pre>
+</section>
+<!------------------------------------------------------>
+<!------------------------------------------------------>
+<!------------------------------------------------------>
+<!--Class Delegation - MAP-->
+<!------------------------------------------------------>
+<!------------------------------------------------------>
+<!------------------------------------------------------>
+<section class="white">
+    <h2>Standard Property delegates</h2>
+    <p><b>map()</b></p>
+    The map instance itself can be used as a delegate
+    <pre>
+        <code class="kotlin" data-trim>
+class MutableUser(val map: MutableMap&ltString&gt, Any?>) {
+    var name: String by map
+    var age: Int     by map
+    // extend if you want with further properties
+}
+        </code>
+    </pre>
+    <aside class="notes">
+        <p>
+            Illustrates how to use a map as a delegate for properties, allowing dynamic property access.
+        </p>
+    </aside>
+</section>
+<section class="white">
+    <h3>Task 5</h3>
+    <p>
+        <b>Goal:</b> Ensure that actions on users are logged, and user state changes are tracked.
+        <br>
+        <b>Objective:</b> Extend the AdminUser and GuestUser classes by adding class and property delegation.
+    </p>
+    <h4>
+        <b>Adding Delegation to Manage User State and Logging</b>
+    </h4>
+    <ul>
+        <li>
+            Define a Loggable interface with a function logAction(action: String) to log actions performed on the
+            user.
+        </li>
+        <li>
+            Create a LoggingDelegate class that implements Loggable. It should log any actions passed to it with a
+            timestamp.
+        </li>
+    </ul>
+    <h4>
+        <b>Use Property Delegation to Track User Property Changes</b>
+    </h4>
+    <ul>
+        <li>
+            Modify the User class to use property delegation for the isActive property and log the change by using
+            Loggable implementation.
+        </li>
+    </ul>
+    <br>
+</section>
