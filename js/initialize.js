@@ -10,7 +10,7 @@ Reveal.initialize({
         {src: '../../plugin/notes/notes.js', async: true},
         {
             src: '../../plugin/highlight/highlight.js', async: true, callback: function () {
-                hljs.initHighlightingOnLoad();
+                kotlin.initHighlightingOnLoad();
             }
         }
     ]

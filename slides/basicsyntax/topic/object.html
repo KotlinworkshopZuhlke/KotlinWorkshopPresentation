@@ -1,39 +1,80 @@
-<section class="white">
-    <h3>Object</h3>
-    <div>Object as Singleton</div>
-    <div>Object expression as anonymous inner class</div>
-    <div>Companion objects as factory methods</div>
-</section>
-<!--Object-->
+<section class="white"><h3>Object</h3></section>
+<!------------------------------------------------------>
+<!------------------------------------------------------>
+<!------------------------------------------------------>
+<!--Singleton-->
+<!------------------------------------------------------>
+<!------------------------------------------------------>
+<!------------------------------------------------------>
 <section class="white">
     <h3>Singleton</h3>
-    <pre><code class="hljs" data-trim>
-                object Payroll {
-                    val allEmployees = arrayListOf&ltPerson&gt()
-                    fun calculateSalary() {
-                        for (person in allEmployees) {...}
-                    }
-                }
+    <pre>
+        <code class="kotlin" data-trim>
+object Payroll {
+    val allUsers = arrayListOf&ltUser&gt()
 
-                </code></pre>
+    fun calculateTotalSalaryOverUsers() {
+        for (user in allUsers) {...}
+    }
+}
+        </code>
+    </pre>
+    <aside class="notes">
+        <p>
+            In Kotlin, an object declaration creates a singleton, which means there's only one instance of that class.
+            This is useful for managing shared state or behavior without needing to create multiple instances.
+        </p>
+        <p>
+            object Payroll: Defines a singleton named Payroll.
+            allUsers: A mutable list that can store multiple User instances.
+            calculateTotalSalaryOverUsers: A function that iterates through allUsers to perform salary calculations.
+        </p>
+    </aside>
 </section>
+<!------------------------------------------------------>
+<!------------------------------------------------------>
+<!------------------------------------------------------>
+<!--Anonymus inner class-->
+<!------------------------------------------------------>
+<!------------------------------------------------------>
+<!------------------------------------------------------>
 <section class="white">
     <h3>Anonymus inner class</h3>
-    <pre><code class="hljs" data-trim>
-object NoCaseFileComparator : Comparator&ltFile&gt {
+    <pre>
+        <code class="kotlin" data-trim>
+object IgnoreCaseFileComparator : Comparator&ltFile&gt {
     override fun compare(file1: File, file2: File): Int {
-        return file1.path.compareTo(file2.path,
-                ignoreCase = true)
-} }
-                </code></pre>
-    <pre><code class="hljs" data-trim>
+        return file1.path.compareTo(file2.path, ignoreCase = true)
+    }
+}
+
 val files = listOf(File("/Z"), File("/a"))
-println(files.sortedWith(NoCaseFileComparator))
-                </code></pre>
+println(files.sortedWith(IgnoreCaseFileComparator))
+        </code>
+    </pre>
+    <aside class="notes">
+        <p>
+            An anonymous inner class is a class without a name that is defined at the point of instantiation.
+            It is often used to implement interfaces or extend classes on the fly.
+        </p>
+        <p>
+            object IgnoreCaseFileComparator: An anonymous inner class implementing Comparator&ltFile&gt.
+            compare function: Provides a way to compare two File objects by their paths, ignoring case differences.
+            sortedWith: Sorts a list of File objects using the custom comparator defined above.
+        </p>
+    </aside>
 </section>
+<!------------------------------------------------------>
+<!------------------------------------------------------>
+<!------------------------------------------------------>
+<!--Static methods-->
+<!------------------------------------------------------>
+<!------------------------------------------------------>
+<!------------------------------------------------------>
 <section class="white">
     <h3>Companion Object</h3>
-    <pre><code class="hljs" data-trim>
+    <pre>
+        <code class="kotlin" data-trim>
 class A {
     companion object {
         fun bar() {
@@ -41,9 +82,20 @@ class A {
          }
      }
 }
-            </code></pre>
-    bar can be called like this:
-    <pre><code class="hljs" data-trim>
-                A.bar()
-                </code></pre>
+
+fun main() {
+    A.bar()
+}
+        </code>
+    </pre>
+    <aside class="notes">
+        <p>
+            Companion objects are similar to static members in Java.
+            They allow you to define methods and properties that belong to the class rather than to instances of the class.
+        </p>
+        <p>
+            companion object: Defines a companion object within class A.
+            bar function: A static-like method that can be called without an instance of A.
+        </p>
+    </aside>
 </section>

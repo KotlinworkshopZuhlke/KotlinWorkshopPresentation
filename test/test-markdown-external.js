@@ -13,8 +13,8 @@ Reveal.addEventListener( 'ready', function() {
 	});
 
 	test( 'Language highlighter', function() {
-		strictEqual( document.querySelectorAll( '.hljs-keyword' ).length, 1, 'got rendered highlight tag.' );
-		strictEqual( document.querySelector( '.hljs-keyword' ).innerHTML, 'var', 'the same keyword: var.' );
+		strictEqual( document.querySelectorAll( '.kotlin-keyword' ).length, 1, 'got rendered highlight tag.' );
+		strictEqual( document.querySelector( '.kotlin-keyword' ).innerHTML, 'var', 'the same keyword: var.' );
 	});
 
 

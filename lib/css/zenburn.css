@@ -5,7 +5,7 @@ based on dark.css by Ivan Sagalaev
 
 */
 
-.hljs {
+.kotlin {
   display: block;
   overflow-x: auto;
   padding: 0.5em;
@@ -13,68 +13,68 @@ based on dark.css by Ivan Sagalaev
   color: #dcdcdc;
 }
 
-.hljs-keyword,
-.hljs-selector-tag,
-.hljs-tag {
+.kotlin-keyword,
+.kotlin-selector-tag,
+.kotlin-tag {
   color: #e3ceab;
 }
 
-.hljs-template-tag {
+.kotlin-template-tag {
   color: #dcdcdc;
 }
 
-.hljs-number {
+.kotlin-number {
   color: #8cd0d3;
 }
 
-.hljs-variable,
-.hljs-template-variable,
-.hljs-attribute {
+.kotlin-variable,
+.kotlin-template-variable,
+.kotlin-attribute {
   color: #efdcbc;
 }
 
-.hljs-literal {
+.kotlin-literal {
   color: #efefaf;
 }
 
-.hljs-subst {
+.kotlin-subst {
   color: #8f8f8f;
 }
 
-.hljs-title,
-.hljs-name,
-.hljs-selector-id,
-.hljs-selector-class,
-.hljs-section,
-.hljs-type {
+.kotlin-title,
+.kotlin-name,
+.kotlin-selector-id,
+.kotlin-selector-class,
+.kotlin-section,
+.kotlin-type {
   color: #efef8f;
 }
 
-.hljs-symbol,
-.hljs-bullet,
-.hljs-link {
+.kotlin-symbol,
+.kotlin-bullet,
+.kotlin-link {
   color: #dca3a3;
 }
 
-.hljs-deletion,
-.hljs-string,
-.hljs-built_in,
-.hljs-builtin-name {
+.kotlin-deletion,
+.kotlin-string,
+.kotlin-built_in,
+.kotlin-builtin-name {
   color: #cc9393;
 }
 
-.hljs-addition,
-.hljs-comment,
-.hljs-quote,
-.hljs-meta {
+.kotlin-addition,
+.kotlin-comment,
+.kotlin-quote,
+.kotlin-meta {
   color: #7f9f7f;
 }
 
 
-.hljs-emphasis {
+.kotlin-emphasis {
   font-style: italic;
 }
 
-.hljs-strong {
+.kotlin-strong {
   font-weight: bold;
 }
