@@ -1,5 +1,6 @@
-/*
-    Task 1
+package com.zuehlke.kotlinworkshop.task
+
+/* Class.html - Task 1
         Create a User that contains the following properties:
         - Int id
         - String name
@@ -7,32 +8,23 @@
         - Boolean (default to true) isActive
  */
 
-class UserExampleOne(
+class UserTaskOneExampleOne(
     val id: Int,
     val name: String,
     val email: String,
-    val isActive: Boolean,
+    val isActive: Boolean = true,
 )
 
-open UserExampleOne(
+open class UserTaskOneExampleTwo(
     open val id: Int,
     open val name: String,
     open val email: String,
-    open val isActive: Boolean,
+    open val isActive: Boolean  = true,
 )
 
-data class User(
+data class UserTaskOneExampleThree(
     val id: Int,
     val name: String,
     val email: String,
-    val isActive: Boolean,
+    val isActive:Boolean = true,
 )
-
-fun main() {
-    val userOne = UserExampleOne(1, "Bob", "bob.alice@zuehlke.com", false)
-    val userTwo = User(1, "Alice", "bob.alice@zuehlke.com", false)
-
-    println(userOne)
-    println(userTwo)
-}
-main()

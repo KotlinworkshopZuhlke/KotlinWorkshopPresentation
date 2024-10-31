@@ -74,9 +74,9 @@ println(copy.equals(chris)) //prints false
 </section>
 <section class="white">
     <h3>Task 1</h3>
-    <p>
+    <h4>
         Create a User that contains the following properties:
-    </p>
+    </h4>
     <ul>
         <li>Int id</li>
         <li>String name</li>
@@ -121,8 +121,8 @@ enum class State {
     <pre>
         <code class="kotlin" data-trim>
 sealed class ViewState {
-    object Error: ViewState()
-    object Loading: ViewState()
+    data object Error: ViewState()
+    data object Loading: ViewState()
     data class Data(val someData: SomeData) : ViewState()
 }
 
@@ -143,9 +143,9 @@ fun handleViewState(viewState: ViewState): Unit = when(viewState){
 </section>
 <section class="white">
     <h3>Task 2</h3>
-    <p>
+    <h4>
         Define UserState's:
-    </p>
+    </h4>
     <ul>
         <li>Active</li>
         <li>Inactive</li>
@@ -268,10 +268,11 @@ class Derived : Base {
 </section>
 <section class="white">
     <h3>Task 3</h3>
-    <p>
-        Implement an AdminUser and a GuestUser - default activeState to true
-        Following operations can be run on a User:
-    </p>
+    <h4>Create `AdminUser` and `GuestUser` classes with:</h4>
+    <ul>
+        <li>Default active state set to true.</li>
+    </ul>
+    <h4>Implement the following operations on a User:</h4>
     <ul>
         <li>activate</li>
         <li>deactivate</li>
