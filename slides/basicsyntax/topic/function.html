@@ -99,7 +99,20 @@ listOfNumbers.filter { isOdd(it) }
         <p>Demonstrates mutability with lists using <code>mutableListOf()</code>. The <code>::</code> operator creates a reference to the function.</p>
     </aside>
 </section>
+<section class="white">
+    <h2>Extension Functions</h2>
+    <p>Extension functions allow you to add new functionality to existing classes without modifying their source code.</p>
+    <pre><code class="kotlin" data-trim>
+fun String.lastChar(): Char = this[this.length - 1]
 
+val char = "Kotlin".lastChar() // Returns 'n'
+    </code></pre>
+    <aside class="notes">
+        <p>Explain the purpose of extension functions in Kotlin: enhancing existing classes with new capabilities.</p>
+        <p>Show how to define an extension function and demonstrate its usage.</p>
+        <p>Discuss that extension functions do not modify the original class but provide additional behavior.</p>
+    </aside>
+</section>
 <!------------------------------------------------------>
 <!------------------------------------------------------>
 <!------------------------------------------------------>

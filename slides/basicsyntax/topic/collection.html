@@ -1,30 +1,35 @@
 <section class="white">
-    <h3>Collection</h3>
+    <h3>Collections</h3>
 </section>
+
 <section class="white">
     <h4>List</h4>
     <pre><code class="kotlin" data-trim>
-listOf(2, 3)
-mutableListOf&lt;Int&gt;()
+val immutableList = listOf(2, 3) // Immutable list
+val mutableList = mutableListOf&lt;Int&gt;() // Mutable list
     </code></pre>
 </section>
+
 <section class="white">
     <h4>Set</h4>
     <pre><code class="kotlin" data-trim>
-setOf(2, 3)
-mutableSetOf&lt;Int&gt;()
+val immutableSet = setOf(2, 3) // Immutable set
+val mutableSet = mutableSetOf&lt;Int&gt;() // Mutable set
     </code></pre>
 </section>
+
 <section class="white">
     <h4>Map</h4>
     <pre><code class="kotlin" data-trim>
-mapOf("Hello" to "Hallo", "Bye" to "Tschüss")
-mutableMapOf&lt;String, String&gt;()
+val immutableMap = mapOf("Hello" to "Hallo", "Bye" to "Tschüss") // Immutable map
+val mutableMap = mutableMapOf<&lt;String, String&gt;() // Mutable map
     </code></pre>
 </section>
+
 <section class="white">
     <h3>Useful Functions on Collections</h3>
 </section>
+
 <section class="white">
     <h4>forEach { ... }</h4>
     <pre><code class="kotlin" data-trim>
@@ -34,20 +39,21 @@ numbers.forEach {
 }
     </code></pre>
 </section>
+
 <section class="white">
     <h4>map { ... }</h4>
     <pre><code class="kotlin" data-trim>
 val numbers = setOf(1, 2, 3)
-println(numbers.map { it * 3 })
-// prints 3, 6, 9
+println(numbers.map { it * 3 }) // prints [3, 6, 9]
     </code></pre>
 </section>
+
 <section class="white">
     <h4>filter { ... }</h4>
     <pre><code class="kotlin" data-trim>
 val numbers = listOf("one", "two", "three", "four")
 val longerThan3 = numbers.filter { it.length > 3 }
-println(longerThan3)
+println(longerThan3) // prints [three, four]
     </code></pre>
 </section>
 

@@ -2,40 +2,40 @@
 <section class="white">
     <h2>Operators &amp; Coercion</h2>
     <h3>Definition of &laquo;Coercion&raquo;</h3>
-    <p>In computer science, type conversion, typecasting, and coercion are different ways of, implicitly or explicitly, changing an entity of one data type into another.</p>
+    <p>In computer science, type conversion, typecasting, and coercion are different ways of implicitly or explicitly
+        changing an entity of one data type into another.</p>
     <p>For example, adding a number and a string will convert the number into a string.</p>
 </section>
+
 <section class="white">
-    <h2>What does this mean in practice?</h2>
-    <p>If the operands of an operator are of different types, one of them will be converted. The <a href="http://delapouite.com/ramblings/javascript-coercion-rules.html" target="_blank">coercion rules</a> are quite extensive.</p>
-    <pre>
-        <code class="kotlin javascript" data-trim contenteditable data-noescape>
+    <h2>What Does This Mean in Practice?</h2>
+    <p>If the operands of an operator are of different types, one of them will be converted. The <a
+            href="http://delapouite.com/ramblings/javascript-coercion-rules.html" target="_blank">coercion rules</a> are
+        quite extensive.</p>
+    <pre><code class="kotlin javascript" data-trim contenteditable data-noescape>
 0 == true; // false because true is converted to 1
 1 == "1"; // true because 1 is converted to "1"
 let x = 0 + ""; // x will be a string "0"
-        </code>
-    </pre>
+    </code></pre>
 </section>
+
 <section class="white">
     <h3>Loose vs. Strict Equals</h3>
     <ul>
-        <li>Loose equals <span class="code">==</span> uses coercion</li>
-        <li>Strict equals <span class="code">===</span> does not change the types</li>
+        <li>Loose equals <span class="code">==</span> uses coercion.</li>
+        <li>Strict equals <span class="code">===</span> does not change the types.</li>
     </ul>
-    <pre>
-        <code class="kotlin javascript" data-trim contenteditable data-noescape>
+    <pre><code class="kotlin javascript" data-trim contenteditable data-noescape>
 1 == "1"; // true
 1 === "1"; // false
-        </code>
-    </pre>
+    </code></pre>
     <div class="fragment tip">In your daily life, use strict equals only!</div>
 </section>
+
 <section class="white">
     <h3>Logical Operators</h3>
-    <pre>
-        <code class="kotlin javascript" data-trim contenteditable data-noescape>
-true && 42; // Returns second expression --> 42
+    <pre><code class="kotlin javascript" data-trim contenteditable data-noescape>
+true && 42; // Returns the second expression --> 42
 false || 42 || true; // Returns the first "true" expression found
-        </code>
-    </pre>
+    </code></pre>
 </section>

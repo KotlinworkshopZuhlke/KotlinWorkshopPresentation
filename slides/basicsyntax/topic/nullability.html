@@ -1,10 +1,81 @@
 <section class="white">
     <h3>Nullability</h3>
-    <p><strong>Nullability</strong> refers to whether a variable can hold a null value. In Kotlin, for example, you can define a variable as nullable by adding a question mark after the type:</p>
+    <p><strong>Nullability</strong> refers to whether a variable can hold a null value.</p>
     <pre>
         <code class="kotlin" data-trim contenteditable data-noescape>
 var name: String? = null // name can be null
         </code>
     </pre>
     <p>This is important for preventing null pointer exceptions, as Kotlin forces you to handle null cases explicitly.</p>
+    <aside class="notes">
+        <p>Introduce the concept of nullability in Kotlin and how it helps prevent null pointer exceptions.</p>
+        <p>Explain how a variable can be declared as nullable using a question mark.</p>
+    </aside>
+</section>
+<section class="white">
+    <h3>Nullable and Non-Nullable Types</h3>
+    <p>In Kotlin, types are non-nullable by default, meaning you cannot assign <code>null</code> to a variable unless declared as nullable.</p>
+    <pre>
+        <code class="kotlin" data-trim contenteditable data-noescape>
+var nonNullableName: String = "Alice" // cannot be null
+var nullableName: String? = null // can be null
+        </code>
+    </pre>
+    <aside class="notes">
+        <p>Discuss the difference between nullable and non-nullable types in Kotlin.</p>
+        <p>Emphasize that types are non-nullable by default, enhancing code safety.</p>
+    </aside>
+</section>
+<section class="white">
+    <h3>Safe Calls</h3>
+    <p>Use the <code>?.</code> operator to safely access properties or methods of nullable types without throwing a <code>NullPointerException</code>.</p>
+    <pre>
+        <code class="kotlin" data-trim contenteditable data-noescape>
+val length: Int? = nullableName?.length // length will be null if nullableName is null
+        </code>
+    </pre>
+    <aside class="notes">
+        <p>Explain how safe calls work and their importance in avoiding null pointer exceptions.</p>
+        <p>Provide an example to illustrate safe calls in action.</p>
+    </aside>
+</section>
+<section class="white">
+    <h3>Elvis Operator</h3>
+    <p>The Elvis operator (<code>?:</code>) provides a default value when dealing with nullable types.</p>
+    <pre>
+        <code class="kotlin" data-trim contenteditable data-noescape>
+val safeLength: Int = nullableName?.length ?: 0 // returns 0 if nullableName is null
+        </code>
+    </pre>
+    <aside class="notes">
+        <p>Introduce the Elvis operator and explain its usage for providing default values.</p>
+        <p>Highlight its importance in writing concise and safe code.</p>
+    </aside>
+</section>
+<section class="white">
+    <h3>Not-Null Assertion</h3>
+    <p>The not-null assertion operator (<code>!!</code>) asserts that a value is not null.</p>
+    <pre>
+        <code class="kotlin" data-trim contenteditable data-noescape>
+val nonNullName: String = nullableName!! // Throws an exception if nullableName is null
+        </code>
+    </pre>
+    <aside class="notes">
+        <p>Discuss the not-null assertion operator and its implications.</p>
+        <p>Warn about its potential to throw exceptions if used incorrectly.</p>
+    </aside>
+</section>
+<section class="white">
+    <h3>Use Cases for Nullability</h3>
+    <p>Nullability is especially useful when dealing with optional data, making your code safer by minimizing the risk of runtime exceptions.</p>
+    <p>Common use cases include:</p>
+    <ul>
+        <li>API responses with optional fields</li>
+        <li>User input that may not be provided</li>
+        <li>Configuration settings that can be absent</li>
+    </ul>
+    <aside class="notes">
+        <p>Highlight practical scenarios where nullability plays a critical role.</p>
+        <p>Emphasize how it enhances code safety and robustness in real-world applications.</p>
+    </aside>
 </section>
