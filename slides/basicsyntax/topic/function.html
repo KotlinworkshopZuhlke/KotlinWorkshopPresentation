@@ -168,11 +168,13 @@ fun &lt;T&gt; T.apply(f: T.() -&gt; Unit): T { f(); return this }
     </code></pre>
     <p>Substitutes the Builder pattern for more readable code:</p>
     <pre><code class="kotlin" data-trim>
-val recyclerView: RecyclerView = RecyclerView().apply {
-    setHasFixedSize = true
-    layoutManager = LinearLayoutManager(context)
-    adapter = MyAdapter(context)
-    clearOnScrollListener()
+data class Person(var name: String = "", var age: Int = 0)
+
+val person = Person().apply {
+    name = "Alice"
+    age = 30
 }
+println(person) // prints Person(name=Alice, age=30)
     </code></pre>
 </section>
+
