@@ -1,10 +1,19 @@
 <section class="white">
-    <h3>Testing</h3>
-    <p>Here a list of commonly used kotlin libraries helpful for testing.</p>
+    <h3>Call function with lambda argument</h3>
+    <p>If the last argument of a function is a lambda, when the function is called,
+    the lambda can be moved outside of the parenthesis</p>
     <pre>
         <code class="kotlin" data-trim contenteditable data-noescape>
-var name: String? = null // name can be null
+//function that takes as an argument an int and a lambda
+fun isValid(value: Int, validator: (Int) -> Boolean): Boolean {
+    return validator(value)
+}
+
+val age = 30
+val result = isValid(age,  { it in 1..149}) // lambda inside "()"
+
+// last lambda argument can be outside "()"
+val result = isValid(age) { it in 1..149}
         </code>
     </pre>
-    <p>This is important for preventing null pointer exceptions, as Kotlin forces you to handle null cases explicitly.</p>
 </section>
