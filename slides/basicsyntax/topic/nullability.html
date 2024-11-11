@@ -3,7 +3,8 @@
     <p><strong>Nullability</strong> refers to whether a variable can hold a null value.</p>
     <pre>
         <code class="kotlin" data-trim contenteditable data-noescape>
-var name: String? = null // name can be null
+var name: String? = null
+// name can be null
         </code>
     </pre>
     <p>This is important for preventing null pointer exceptions, as Kotlin forces you to handle null cases explicitly.</p>
@@ -17,8 +18,10 @@ var name: String? = null // name can be null
     <p>In Kotlin, types are non-nullable by default, meaning you cannot assign <code>null</code> to a variable unless declared as nullable.</p>
     <pre>
         <code class="kotlin" data-trim contenteditable data-noescape>
-var nonNullableName: String = "Alice" // cannot be null
-var nullableName: String? = null // can be null
+var nonNullableName: String = "Alice"
+// cannot be null
+var nullableName: String? = null
+// can be null
         </code>
     </pre>
     <aside class="notes">
@@ -31,7 +34,8 @@ var nullableName: String? = null // can be null
     <p>Use the <code>?.</code> operator to safely access properties or methods of nullable types without throwing a <code>NullPointerException</code>.</p>
     <pre>
         <code class="kotlin" data-trim contenteditable data-noescape>
-val length: Int? = nullableName?.length // length will be null if nullableName is null
+val length: Int? = nullableName?.length
+// length will be null if nullableName is null
         </code>
     </pre>
     <aside class="notes">
@@ -40,29 +44,31 @@ val length: Int? = nullableName?.length // length will be null if nullableName i
     </aside>
 </section>
 <section class="white">
-    <h3>Elvis Operator</h3>
-    <p>The Elvis operator (<code>?:</code>) provides a default value when dealing with nullable types.</p>
-    <pre>
-        <code class="kotlin" data-trim contenteditable data-noescape>
-val safeLength: Int = nullableName?.length ?: 0 // returns 0 if nullableName is null
-        </code>
-    </pre>
-    <aside class="notes">
-        <p>Introduce the Elvis operator and explain its usage for providing default values.</p>
-        <p>Highlight its importance in writing concise and safe code.</p>
-    </aside>
-</section>
-<section class="white">
     <h3>Not-Null Assertion</h3>
     <p>The not-null assertion operator (<code>!!</code>) asserts that a value is not null.</p>
     <pre>
         <code class="kotlin" data-trim contenteditable data-noescape>
-val nonNullName: String = nullableName!! // Throws an exception if nullableName is null
+val nonNullName: String = nullableName!!
+// Throws an exception if nullableName is null
         </code>
     </pre>
     <aside class="notes">
         <p>Discuss the not-null assertion operator and its implications.</p>
         <p>Warn about its potential to throw exceptions if used incorrectly.</p>
+    </aside>
+</section>
+<section class="white">
+    <h3>Elvis Operator</h3>
+    <p>The Elvis operator (<code>?:</code>) provides a default value when dealing with nullable types.</p>
+    <pre>
+        <code class="kotlin" data-trim contenteditable data-noescape>
+val safeLength: Int = nullableName?.length ?: 0
+// returns 0 if nullableName is null
+        </code>
+    </pre>
+    <aside class="notes">
+        <p>Introduce the Elvis operator and explain its usage for providing default values.</p>
+        <p>Highlight its importance in writing concise and safe code.</p>
     </aside>
 </section>
 <section class="white">
