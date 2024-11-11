@@ -87,7 +87,7 @@ println(copy.equals(chris)) // prints false
     </code></pre>
     <aside class="notes">
         <p>
-            Kotlin automatically generates: getters, setters, toString, hashCode, equals, and copy methods for data
+            Kotlin automatically generates: <b>toString, hashCode, equals, and copy</b> methods for data
             classes.
         </p>
     </aside>
@@ -182,13 +182,13 @@ open class Base {
 }
 
 class Derived : Base() {
-    final override fun a() {}
+    override fun a() {}
     override val c = 3
 }
     </code></pre>
     <aside class="notes">
         <p>
-            In Kotlin, classes are final by default, unlike Java. To inherit from a class, it needs to be marked with
+            <b>In Kotlin, classes are final by default, unlike Java.</b> To inherit from a class, it needs to be marked with
             the <code>open</code> keyword. To override a method, it must also be declared <code>open</code> in the
             parent class.
         </p>
