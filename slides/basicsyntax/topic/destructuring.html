@@ -53,7 +53,7 @@ fun main() {
 <!------------------------------------------------------>
 <section class="white">
     <h2>Destructuring in Collections</h2>
-    <p><b>Example with Lists</b></p>
+    <p><b>Example with Lists (similar with Maps)</b></p>
     <pre>
         <code class="kotlin" data-trim>
 val languages = listOf("Kotlin", "Java", "Python")
@@ -68,25 +68,6 @@ println(third)  // Output: Python
     <aside class="notes">
         <p>
             This demonstrates destructuring on lists, where values are unpacked into individual variables.
-        </p>
-    </aside>
-</section>
-<section class="white">
-    <h2>Destructuring with Loops</h2>
-    <p><b>Example with Maps</b></p>
-    <pre>
-        <code class="kotlin" data-trim>
-val map = mapOf(1 to "one", 2 to "two")
-
-for ((key, value) in map) {
-    println("$key -> $value")
-}
-        </code>
-    </pre>
-    <aside class="notes">
-        <p>
-            Destructuring in loops makes iterating over maps straightforward, with keys and values directly accessible
-            within the loop.
         </p>
     </aside>
 </section>
