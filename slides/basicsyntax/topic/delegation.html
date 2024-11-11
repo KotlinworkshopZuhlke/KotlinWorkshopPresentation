@@ -76,50 +76,6 @@ fun main() {
 <!------------------------------------------------------>
 <!------------------------------------------------------>
 <!------------------------------------------------------>
-<!--Property Delegation-->
-<!------------------------------------------------------>
-<!------------------------------------------------------>
-<!------------------------------------------------------>
-<section class="white">
-    <h2>Property Delegation</h2>
-    <pre>
-        <code class="kotlin" data-trim>
-import kotlin.reflect.KProperty
-
-class Delegate {
-    operator fun getValue(
-        thisRef: Any?,
-        property: KProperty<*>
-    ): String { return "$thisRef, delegating '${property.name}' to me!"}
-
-    operator fun setValue(
-        thisRef: Any?,
-        property: KProperty<*>,
-        value: String
-    ) { println("$value is assigned to '${property.name}' in $thisRef.") }
-}
-
-class Example {
-    var p: String by Delegate()
-}
-
-fun main() {
-    val e = Example()
-	println(e.p) // “Example@33a17727, delegating ‘p’ to me!”
-    e.p = "X" // X is assigned to 'p' in Example@2b71fc7e.
-}
-        </code>
-    </pre>
-    <aside class="notes">
-        <p>
-            Provides a concrete example of a delegate class that handles property getting and setting,
-            illustrating how to use operator overloading.
-        </p>
-    </aside>
-</section>
-<!------------------------------------------------------>
-<!------------------------------------------------------>
-<!------------------------------------------------------>
 <!--Standard Property Delegation - lazy-->
 <!------------------------------------------------------>
 <!------------------------------------------------------>
@@ -181,6 +137,50 @@ fun main() {
     <aside class="notes">
         takes an initial value and a handler as an argument
         the handler gets called each time when we assign a value to the property
+    </aside>
+</section>
+<!------------------------------------------------------>
+<!------------------------------------------------------>
+<!------------------------------------------------------>
+<!--Property Delegation-->
+<!------------------------------------------------------>
+<!------------------------------------------------------>
+<!------------------------------------------------------>
+<section class="white">
+    <h2>Property Delegation</h2>
+    <pre>
+        <code class="kotlin" data-trim>
+import kotlin.reflect.KProperty
+
+class Delegate {
+    operator fun getValue(
+        thisRef: Any?,
+        property: KProperty<*>
+    ): String { return "$thisRef, delegating '${property.name}' to me!"}
+
+    operator fun setValue(
+        thisRef: Any?,
+        property: KProperty<*>,
+        value: String
+    ) { println("$value is assigned to '${property.name}' in $thisRef.") }
+}
+
+class Example {
+    var p: String by Delegate()
+}
+
+fun main() {
+    val e = Example()
+	println(e.p) // “Example@33a17727, delegating ‘p’ to me!”
+    e.p = "X" // X is assigned to 'p' in Example@2b71fc7e.
+}
+        </code>
+    </pre>
+    <aside class="notes">
+        <p>
+            Provides a concrete example of a delegate class that handles property getting and setting,
+            illustrating how to use operator overloading.
+        </p>
     </aside>
 </section>
 <!------------------------------------------------------>
