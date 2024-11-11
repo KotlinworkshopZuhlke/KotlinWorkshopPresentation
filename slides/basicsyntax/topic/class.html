@@ -6,22 +6,11 @@
 <!-- Normal Class -->
 <!------------------------------------------------------>
 <section class="white">
-    <h3>Normal Class</h3>
+    <h3>Normal class - Default constructor</h3>
     <pre><code class="kotlin" data-trim>
 class Test
-
-class Test constructor(variable: Any)
-
-class Test constructor(variable: Any) {
-    init {
-        val instanceVariable = variable
-    }
-}
-
-class Person(val name: String, val hasSalary: Boolean) {
-    constructor(employee: Employee) : this(employee.name, true)
-    constructor() : this("", false)
-}
+class Test {}
+class Test constructor() {}
     </code></pre>
     <aside class="notes">
         <p>
@@ -29,36 +18,57 @@ class Person(val name: String, val hasSalary: Boolean) {
             defined with no constructors has a default constructor that initializes an empty object, e.g., <code>class
             Test</code>.
         </p>
+    </aside>
+</section>
+<section class="white">
+    <h3>Normal class - Primary constructor</h3>
+    <pre><code class="kotlin" data-trim>
+class Test(variable: Any)
+class Test constructor(variable: Any)
+class Test constructor(variable: Any) {
+    init {
+        val instanceVariable = variable
+    }
+}
+    </code></pre>
+    <aside class="notes">
         <p>
             <strong>Primary Constructor:</strong> The primary constructor is part of the class header and is optional.
             It can be written with or without the <code>constructor</code> keyword, e.g., <code>class Test
             constructor(variable: Any)</code>.
         </p>
         <p>
-            <strong>Secondary Constructor:</strong> A secondary constructor is defined within the class body and is
-            prefixed by <code>constructor</code>. It must delegate to the primary constructor or another secondary
-            constructor.
+            <strong>init Blocks:</strong> Each <code>init</code> block is executed in the order it appears in the class
+            body, typically used for initialization requiring access to parameters or properties.
         </p>
         <p>
             <strong>Property Initializers:</strong> Properties initialized directly in the class body are executed
             first, evaluated in the order defined.
         </p>
+    </aside>
+</section>
+<section class="white">
+    <h3>Normal class - Secondary constructor</h3>
+    <pre><code class="kotlin" data-trim>
+class Person(val name: String, val hasSalary: Boolean) {
+    constructor(employee: Employee) : this(employee.name, true)
+    constructor() : this("", false)
+}
+    </code></pre>
+    <aside class="notes">
         <p>
-            <strong>init Blocks:</strong> Each <code>init</code> block is executed in the order it appears in the class
-            body, typically used for initialization requiring access to parameters or properties.
-        </p>
-        <p>
-            <strong>Constructor with Initialization (init):</strong> An <code>init</code> block runs as part of the
-            primary constructor when an instance is created, initializing <code>instanceVariable</code> with the
-            parameter.
+            <strong>Secondary Constructor:</strong> A secondary constructor is defined within the class body and is
+            prefixed by <code>constructor</code>. It must delegate to the primary constructor or another secondary
+            constructor.
         </p>
         <p>
             <strong>Secondary Constructors:</strong> When invoked, a secondary constructor first delegates to the
             primary constructor and then executes its body.
         </p>
         <p>
-            This demonstrates how constructors provide flexibility in initializing class instances based on specific
-            requirements.
+            <strong>Constructor with Initialization (init):</strong> An <code>init</code> block runs as part of the
+            primary constructor when an instance is created, initializing <code>instanceVariable</code> with the
+            parameter.
         </p>
     </aside>
 </section>
