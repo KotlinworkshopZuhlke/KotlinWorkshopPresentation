@@ -55,6 +55,29 @@ sum(a = 2, b = 5)
     </aside>
 </section>
 
+
+<!------------------------------------------------------>
+<!------------------------------------------------------>
+<!------------------------------------------------------>
+<!--Extension Functions-->
+<!------------------------------------------------------>
+<!------------------------------------------------------>
+<!------------------------------------------------------>
+<section class="white">
+    <h2>Extension Functions</h2>
+    <p>Extension functions allow you to add new functionality to existing classes without modifying their source code.</p>
+    <pre><code class="kotlin" data-trim>
+fun String.lastChar(): Char = this[this.length - 1]
+
+val char = "Kotlin".lastChar() // Returns 'n'
+    </code></pre>
+    <aside class="notes">
+        <p>Explain the purpose of extension functions in Kotlin: enhancing existing classes with new capabilities.</p>
+        <p>Show how to define an extension function and demonstrate its usage.</p>
+        <p>Discuss that extension functions do not modify the original class but provide additional behavior.</p>
+    </aside>
+</section>
+
 <!------------------------------------------------------>
 <!------------------------------------------------------>
 <!------------------------------------------------------>
@@ -67,12 +90,33 @@ sum(a = 2, b = 5)
     <pre><code class="kotlin" data-trim>
 () -&gt; Unit
 (Int) -&gt; Double
-() -&gt; () -&gt; ()
+(Int) -&gt; (Int) -&gt; Unit
     </code></pre>
     <p>Lambda expressions:</p>
     <pre><code class="kotlin" data-trim>
-val divideByHalf: (Int) -&gt; Int = { x -&gt; x / 2 } // lambda expression
-val divideByHalf = fun(x: Int) = x / 2 // anonymous function
+// lambda expression
+val double: (Int) -> Int = { x -> x * 2 } // long
+val double = {x: Int -> x * 2} // short
+val double: (Int) -> Int = {it * 2}  // kotlin provides the keyword it
+    </code></pre>
+    <aside class="notes">
+        <p>Functions in Kotlin can be treated as types and passed around. Lambda expressions return the last statement in their body.</p>
+    </aside>
+</section>
+
+<!------------------------------------------------------>
+<!------------------------------------------------------>
+<!------------------------------------------------------>
+<!--Anonyoumous functions-->
+<!------------------------------------------------------>
+<!------------------------------------------------------>
+<!------------------------------------------------------>
+<section class="white">
+    <h2>Anonymous functions</h2>
+    <pre><code class="kotlin" data-trim>
+// anonymous function
+val double = fun(x: Int): Int { return x * 2 } // long
+val double = fun(x: Int) = x * 2  // short
     </code></pre>
     <aside class="notes">
         <p>Functions in Kotlin can be treated as types and passed around. Lambda expressions return the last statement in their body.</p>
@@ -88,6 +132,7 @@ val divideByHalf = fun(x: Int) = x / 2 // anonymous function
 <!------------------------------------------------------>
 <section class="white">
     <h2>Higher-Order Functions</h2>
+    <p>A function that takes functions as parameters, or returns a function.</p>
     <pre><code class="kotlin" data-trim>
 fun isOdd(x: Int) = x % 2 != 0
 val listOfNumbers = mutableListOf&lt;Int&gt;(1, 2, 3, 4)
@@ -99,20 +144,8 @@ listOfNumbers.filter { isOdd(it) }
         <p>Demonstrates mutability with lists using <code>mutableListOf()</code>. The <code>::</code> operator creates a reference to the function.</p>
     </aside>
 </section>
-<section class="white">
-    <h2>Extension Functions</h2>
-    <p>Extension functions allow you to add new functionality to existing classes without modifying their source code.</p>
-    <pre><code class="kotlin" data-trim>
-fun String.lastChar(): Char = this[this.length - 1]
 
-val char = "Kotlin".lastChar() // Returns 'n'
-    </code></pre>
-    <aside class="notes">
-        <p>Explain the purpose of extension functions in Kotlin: enhancing existing classes with new capabilities.</p>
-        <p>Show how to define an extension function and demonstrate its usage.</p>
-        <p>Discuss that extension functions do not modify the original class but provide additional behavior.</p>
-    </aside>
-</section>
+
 <!------------------------------------------------------>
 <!------------------------------------------------------>
 <!------------------------------------------------------>
@@ -141,16 +174,17 @@ val char = "Kotlin".lastChar() // Returns 'n'
 <!------------------------------------------------------>
 <section class="white">
     <h2>Let</h2>
-    <pre><code class="kotlin" data-trim>
-fun &lt;T, R&gt; T.let(f: (T) -&gt; R): R = f(this)
-    </code></pre>
     <p>Useful with the null-check operator <code>?.</code></p>
     <pre><code class="kotlin" data-trim>
 val map: Map&lt;String, String&gt; = ...
 val config = map[key]
-config?.let {
+config?.let { it -> // implicit 'it' is the config
 // This block executes only if "config" is not null
+"Success" // last statement is the return-value
 }
+    </code></pre>
+    <pre><code class="kotlin" data-trim>
+fun &lt;T, R&gt; T.let(f: (T) -&gt; R): R = f(this)
     </code></pre>
 </section>
 
@@ -163,18 +197,18 @@ config?.let {
 <!------------------------------------------------------>
 <section class="white">
     <h2>Apply</h2>
-    <pre><code class="kotlin" data-trim>
-fun &lt;T&gt; T.apply(f: T.() -&gt; Unit): T { f(); return this }
-    </code></pre>
     <p>Substitutes the Builder pattern for more readable code:</p>
     <pre><code class="kotlin" data-trim>
 data class Person(var name: String = "", var age: Int = 0)
 
 val person = Person().apply {
-    name = "Alice"
+    name = "Alice" // inside the block 'this' relates to person
     age = 30
 }
 println(person) // prints Person(name=Alice, age=30)
+    </code></pre>
+    <pre><code class="kotlin" data-trim>
+fun &lt;T&gt; T.apply(f: T.() -&gt; Unit): T { f(); return this }
     </code></pre>
 </section>
 
