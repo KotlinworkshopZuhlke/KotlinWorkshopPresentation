@@ -93,14 +93,17 @@ println(copy.equals(chris)) // prints false
     </aside>
 </section>
 
+<!------------------------------------------------------>
+<!-- TASK 1 -->
+<!------------------------------------------------------>
 <section class="white">
     <h3>Task 1</h3>
-    <h4>Create a User that contains the following properties:</h4>
+    <h4>Create a <code>User</code> that contains the following properties:</h4>
     <ul>
-        <li>Int id</li>
-        <li>String name</li>
-        <li>String email</li>
-        <li>Boolean (default to true) isActive</li>
+        <li><code>Int id</code></li>
+        <li><code>String name</code></li>
+        <li><code>String email</code></li>
+        <li><code>Boolean (default to true) isActive</code></li>
     </ul>
 </section>
 
@@ -136,17 +139,23 @@ enum class State {
 <section class="white">
     <h3>Sealed Classes</h3>
     <pre><code class="kotlin" data-trim>
-sealed class ViewState {
-    object Error : ViewState()
-    object Loading : ViewState()
-    data class Data(val someData: SomeData) : ViewState()
+sealed class AuthState {
+    data class Authenticated(val userId: String) : AuthState()
+    data object Unauthenticated : AuthState()
+    data class AuthenticationError(val reason: String) : AuthState()
 }
 
-fun handleViewState(viewState: ViewState) {
-    when(viewState) {
-        is ViewState.Error -> { /* show error screen */ }
-        is ViewState.Loading -> { /* show loading indicator */ }
-        is ViewState.Data -> { handleData(viewState.someData) }
+fun processAuthState(authState: AuthState) {
+    when (authState) {
+        is AuthState.Authenticated -> {
+            println("User logged in: ${authState.userId}")
+        }
+        AuthState.Unauthenticated -> {
+            println("User is not logged in.")
+        }
+        is AuthState.AuthenticationError -> {
+            println("Authentication failed: ${authState.reason}")
+        }
     }
 }
     </code></pre>
@@ -159,14 +168,28 @@ fun handleViewState(viewState: ViewState) {
     </aside>
 </section>
 
+<!------------------------------------------------------>
+<!-- TASK 2 -->
+<!------------------------------------------------------>
 <section class="white">
     <h3>Task 2</h3>
-    <h4>Define UserState's:</h4>
+    <h4>Define an OrderState using a sealed class to represent the lifecycle of an order in an e-commerce system. Implement the following states:</h4>
+</section>
+<section class="white">
+    <h4>[1/2] These are the OrderState</h4>
     <ul>
-        <li>Active</li>
-        <li>Inactive</li>
-        <li>Suspended</li>
+        <li><b>Pending:</b> Represents an order that has been created but not yet processed</li>
+        <li><b>Confirmed:</b> Represents an order that has been confirmed.</li>
+        <li><b>Shipped:</b> Represents an order that has been shipped. This state should contain a property trackingNumber</li>
+        <li><b>Delivered:</b> Represents an order that has been successfully delivered</li>
+        <li><b>Cancelled:</b> Represents an order that has been cancelled, with a reason for cancellation</li>
     </ul>
+</section>
+<section class="white">
+    <h4>[2/2] Create a function describeOrderState</h4>
+    <p>
+        Create a function <code class="kotlin" data-trim>describeOrderState(state: OrderState): String</code> that returns a user-friendly description of the current state of the order.
+    </p>
 </section>
 
 <!------------------------------------------------------>
@@ -271,14 +294,10 @@ class Derived : Base {
 
 <section class="white">
     <h3>Task 3</h3>
-    <h4>Create `AdminUser` and `GuestUser` classes with:</h4>
+    <h4>Linking Users with Orders</h4>
+    <h4>Create an OrderManager manages orders per User</h4>
     <ul>
-        <li>Default active state set to true.</li>
-    </ul>
-    <h4>Implement the following operations on a User:</h4>
-    <ul>
-        <li>activate</li>
-        <li>deactivate</li>
-        <li>getUserInfo</li>
+        <li>addOrder</li>
+        <li>describeOrders (which executes <code>describeOrderState</code> if a user exists</li>
     </ul>
 </section>

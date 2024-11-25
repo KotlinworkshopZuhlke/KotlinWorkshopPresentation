@@ -6,47 +6,34 @@ package com.zuehlke.kotlinworkshop.task
     - Inactive
     - Suspended
  */
-enum class UserStateExampleOne {
-    Active,
-    Inactive,
-    Suspended
+sealed class OrderState {
+    data object Pending : OrderState()
+    data object Confirmed : OrderState()
+    data class Shipped(val trackingNumber: String) : OrderState()
+    data object Delivered : OrderState()
+    data class Cancelled(val reason: String) : OrderState()
 }
 
-enum class UserStateExampleTwo {
-    `Active USER`,
-    `Inactive USER`,
-    `Suspended USER`
-}
-
-sealed class UserStateExampleThree {
-    data object Active : UserStateExampleThree()
-    data object Inactive : UserStateExampleThree()
-    data object Suspended : UserStateExampleThree()
-}
-
-
-/*EXAMPLE*/
-fun one(state: UserStateExampleOne) {
-    when (state) {
-        UserStateExampleOne.Active -> println("ONE: $state")
-        UserStateExampleOne.Inactive -> println("ONE: $state")
-        UserStateExampleOne.Suspended -> println("ONE: $state")
+fun describeOrderState(state: OrderState): String {
+    return when (state) {
+        is OrderState.Pending -> "The order is pending."
+        is OrderState.Confirmed -> "The order is confirmed."
+        is OrderState.Shipped -> "The order has been shipped. Tracking number: ${state.trackingNumber}."
+        is OrderState.Delivered -> "The order has been delivered."
+        is OrderState.Cancelled -> "The order was cancelled. Reason: ${state.reason}."
     }
 }
 
-fun two(state: UserStateExampleTwo) {
-    when (state) {
-        UserStateExampleTwo.`Active USER`,
-        UserStateExampleTwo.`Inactive USER`,
-        UserStateExampleTwo.`Suspended USER` ->
-            println("TWO: $state")
-    }
-}
+fun main() {
+    val pending = OrderState.Pending
+    val confirmed = OrderState.Confirmed
+    val shipped = OrderState.Shipped("TRACK12345")
+    val delivered = OrderState.Delivered
+    val cancelled = OrderState.Cancelled("Payment failed")
 
-fun three(state: UserStateExampleThree) {
-    when (state) {
-        is UserStateExampleThree.Active,
-        is UserStateExampleThree.Inactive -> println("THREE: $state")
-        else -> println("Not Implemented")
-    }
+    println(describeOrderState(pending)) // Output: The order is pending.
+    println(describeOrderState(confirmed)) // Output: The order is confirmed.
+    println(describeOrderState(shipped)) // Output: The order has been shipped. Tracking number: TRACK12345.
+    println(describeOrderState(delivered)) // Output: The order has been delivered.
+    println(describeOrderState(cancelled)) // Output: The order was cancelled. Reason: Payment failed.
 }

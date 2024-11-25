@@ -11,7 +11,7 @@ package com.zuehlke.kotlinworkshop.task
 import kotlin.reflect.KProperty
 import kotlin.properties.Delegates
 
-open class User(
+open class UserTask4(
     open val id: Int,
     open val name: String,
     open val email: String,
@@ -56,10 +56,10 @@ data class Admin(
     override val id: Int,
     override val name: String,
     override val email: String,
-) : User(id, name, email)
+) : UserTask4(id, name, email)
 
 data class Guest(
     override val id: Int,
     override val name: String,
     override val email: String,
-) : User(id, name, email)
+) : UserTask4(id, name, email)

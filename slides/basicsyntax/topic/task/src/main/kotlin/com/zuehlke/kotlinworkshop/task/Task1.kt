@@ -22,7 +22,7 @@ open class UserTaskOneExampleTwo(
     open val isActive: Boolean  = true,
 )
 
-data class UserTaskOneExampleThree(
+data class User(
     val id: Int,
     val name: String,
     val email: String,

@@ -74,14 +74,13 @@ fun main() {
     <h3>Anonymus inner class</h3>
     <pre>
         <code class="kotlin" data-trim>
-object IgnoreCaseFileComparator : Comparator&ltFile&gt {
+val anonymous = object : Comparator&ltFile&gt {
     override fun compare(file1: File, file2: File): Int {
         return file1.path.compareTo(file2.path, ignoreCase = true)
     }
 }
-
 val files = listOf(File("/Z"), File("/a"))
-println(files.sortedWith(IgnoreCaseFileComparator))
+println(files.sortedWith(anonymous))
         </code>
     </pre>
     <aside class="notes">
@@ -90,7 +89,7 @@ println(files.sortedWith(IgnoreCaseFileComparator))
             It is often used to implement interfaces or extend classes on the fly.
         </p>
         <p>
-            object IgnoreCaseFileComparator: An anonymous inner class implementing Comparator&ltFile&gt.
+            val anonymous: An anonymous inner class implementing Comparator&ltFile&gt.
             compare function: Provides a way to compare two File objects by their paths, ignoring case differences.
             sortedWith: Sorts a list of File objects using the custom comparator defined above.
         </p>
