@@ -24,19 +24,19 @@
     "node": ">=4.0.0"
   },
   "devDependencies": {
-    "autoprefixer": "^10.4.20",
-    "cssnano": "^7.0.6",
-    "express": ">=4.20.0",
-    "gulp": "^5.0.0",
-    "gulp-connect": "^5.0.0",
+    "autoprefixer": "^10.4.24",
+    "cssnano": "^7.1.2",
+    "express": ">=5.2.1",
+    "gulp": "^5.0.1",
+    "gulp-connect": "^5.7.0",
     "gulp-jshint": "^2.1.0",
     "gulp-postcss": "^10.0.0",
     "gulp-sass": "^5.1.0",
     "gulp-uglify": "^3.0.2",
-    "gulp-zip": "^6.0.0",
+    "gulp-zip": "^6.1.0",
     "mustache": ">=4.2.0",
-    "sass": "^1.80.4",
-    "socket.io": ">=4.5.3"
+    "sass": "^1.97.3",
+    "socket.io": ">=4.8.3"
   },
   "license": "MIT"
 }
