@@ -1,5 +1,4 @@
 <!--suppress HtmlUnknownTarget -->
-<script src="../../js/initialize.js"></script>
 
 <section class="white"><h3>Object</h3></section>
 <!------------------------------------------------------>
@@ -10,8 +9,8 @@
 <!------------------------------------------------------>
 <!------------------------------------------------------>
 <section class="white">
-    <h3>Singleton</h3>
-    <pre>
+  <h3>Singleton</h3>
+  <pre>
         <code class="kotlin" data-trim>
 object Payroll {
     val allUsers = arrayListOf&ltUser&gt()
@@ -22,14 +21,13 @@ object Payroll {
 }
         </code>
     </pre>
-    <aside class="notes">
-        <p>
-            static keyword not required especially for fields and methods. with <b>object</b>-keyword everything is static in that context.
-        </p>
-        <p>
-            Java is not Thread-safe for static methods, where Kotlin is.
-        </p>
-    </aside>
+  <aside class="notes">
+    <p>
+      static keyword not required especially for fields and methods. with
+      <b>object</b>-keyword everything is static in that context.
+    </p>
+    <p>Java is not Thread-safe for static methods, where Kotlin is.</p>
+  </aside>
 </section>
 <!------------------------------------------------------>
 <!------------------------------------------------------>
@@ -39,8 +37,8 @@ object Payroll {
 <!------------------------------------------------------>
 <!------------------------------------------------------>
 <section class="white">
-    <h3>Companion Object</h3>
-    <pre>
+  <h3>Companion Object</h3>
+  <pre>
         <code class="kotlin" data-trim>
 class A {
     companion object {
@@ -55,16 +53,17 @@ fun main() {
 }
         </code>
     </pre>
-    <aside class="notes">
-        <p>
-            Companion objects are similar to static members in Java.
-            They allow you to define methods and properties that belong to the class rather than to instances of the class.
-        </p>
-        <p>
-            companion object: Defines a companion object within class A.
-            bar function: A static-like method that can be called without an instance of A.
-        </p>
-    </aside>
+  <aside class="notes">
+    <p>
+      Companion objects are similar to static members in Java. They allow you to
+      define methods and properties that belong to the class rather than to
+      instances of the class.
+    </p>
+    <p>
+      companion object: Defines a companion object within class A. bar function:
+      A static-like method that can be called without an instance of A.
+    </p>
+  </aside>
 </section>
 <!------------------------------------------------------>
 <!------------------------------------------------------>
@@ -74,8 +73,8 @@ fun main() {
 <!------------------------------------------------------>
 <!------------------------------------------------------>
 <section class="white">
-    <h3>Anonymus inner class</h3>
-    <pre>
+  <h3>Anonymus inner class</h3>
+  <pre>
         <code class="kotlin" data-trim>
 val anonymous = object : Comparator&ltFile&gt {
     override fun compare(file1: File, file2: File): Int {
@@ -86,15 +85,17 @@ val files = listOf(File("/Z"), File("/a"))
 println(files.sortedWith(anonymous))
         </code>
     </pre>
-    <aside class="notes">
-        <p>
-            An anonymous inner class is a class without a name that is defined at the point of instantiation.
-            It is often used to implement interfaces or extend classes on the fly.
-        </p>
-        <p>
-            val anonymous: An anonymous inner class implementing Comparator&ltFile&gt.
-            compare function: Provides a way to compare two File objects by their paths, ignoring case differences.
-            sortedWith: Sorts a list of File objects using the custom comparator defined above.
-        </p>
-    </aside>
+  <aside class="notes">
+    <p>
+      An anonymous inner class is a class without a name that is defined at the
+      point of instantiation. It is often used to implement interfaces or extend
+      classes on the fly.
+    </p>
+    <p>
+      val anonymous: An anonymous inner class implementing Comparator&ltFile&gt.
+      compare function: Provides a way to compare two File objects by their
+      paths, ignoring case differences. sortedWith: Sorts a list of File objects
+      using the custom comparator defined above.
+    </p>
+  </aside>
 </section>
