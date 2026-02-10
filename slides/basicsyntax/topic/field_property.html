@@ -1,14 +1,22 @@
 <!--suppress HtmlUnknownTarget -->
-<script src="../../js/initialize.js"></script>
 
 <section class="white"><h3>Fields and Properties</h3></section>
 <section class="white">
-    <h2>Understanding Fields and Properties</h2>
-    <ul>
-        <li>Kotlin's properties provide a convenient way to define mutable (var) or immutable (val) variables with implicit accessors.</li>
-        <li>Kotlin's properties are backed by a field, referred to as <code>field</code>, which can be accessed inside custom getters and setters.</li>
-        <li>Private setters can control the mutability of a property externally.</li>
-    </ul>
+  <h2>Understanding Fields and Properties</h2>
+  <ul>
+    <li>
+      Kotlin's properties provide a convenient way to define mutable (var) or
+      immutable (val) variables with implicit accessors.
+    </li>
+    <li>
+      Kotlin's properties are backed by a field, referred to as
+      <code>field</code>, which can be accessed inside custom getters and
+      setters.
+    </li>
+    <li>
+      Private setters can control the mutability of a property externally.
+    </li>
+  </ul>
 </section>
 
 <!------------------------------------------------------>
@@ -19,8 +27,8 @@
 <!------------------------------------------------------>
 <!------------------------------------------------------>
 <section class="white">
-    <h2>Examples of Properties</h2>
-    <pre>
+  <h2>Examples of Properties</h2>
+  <pre>
         <code class="kotlin" data-trim>
 class Person {
     val firstname: String = "Celine" // immutable property
@@ -32,9 +40,12 @@ println(person.firstname)      // Has a getter only
 person.lastname = "NewName"    // Has both a getter and setter
         </code>
     </pre>
-    <aside class="notes">
-        <p>This demonstrates implicit getters and setters for Kotlin properties, highlighting the differences between mutable and immutable properties.</p>
-    </aside>
+  <aside class="notes">
+    <p>
+      This demonstrates implicit getters and setters for Kotlin properties,
+      highlighting the differences between mutable and immutable properties.
+    </p>
+  </aside>
 </section>
 
 <!------------------------------------------------------>
@@ -45,9 +56,9 @@ person.lastname = "NewName"    // Has both a getter and setter
 <!------------------------------------------------------>
 <!------------------------------------------------------>
 <section class="white">
-    <h2>Custom Getter and Setter</h2>
-    <p>Mutable property with a public getter and private setter:</p>
-    <pre>
+  <h2>Custom Getter and Setter</h2>
+  <p>Mutable property with a public getter and private setter:</p>
+  <pre>
         <code class="kotlin" data-trim>
 var name: String = "Celine"
     private set

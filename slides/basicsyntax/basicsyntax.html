@@ -1,49 +1,75 @@
 <!doctype html>
 <html>
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
 
     <title>01 Intro | Example Content</title>
 
-    <link rel="icon" href="../../img/zuehlke_logo.jpg">
-    <link rel="stylesheet" href="../../css/reveal.css">
-    <link rel="stylesheet" href="../../css/theme/zuehlke.css">
+    <link rel="icon" href="../../img/zuehlke_logo.jpg" />
+    <link rel="stylesheet" href="../../dist/reveal.css" />
+    <link rel="stylesheet" href="../../css/theme/zuehlke.css" />
 
     <!-- Theme used for syntax highlighting of code -->
-    <link rel="stylesheet" href="../../lib/css/atom-one-dark.css">
+    <link rel="stylesheet" href="../../plugin/highlight/monokai.css" />
 
-    <!-- Printing and PDF exports -->
-    <script>
-        var link = document.createElement('link');
-        link.rel = 'stylesheet';
-        link.type = 'text/css';
-        link.href = window.location.search.match(/print-pdf/gi) ? '../../css/print/pdf.css' : '../../css/print/paper.css';
-        document.getElementsByTagName('head')[0].appendChild(link);
-    </script>
-    <script src="../../js/initialize.js"></script>
-</head>
-<body>
-<div class="reveal">
-    <div class="slides">
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
         <section class="deck-slide">
-            <h1>Basic syntax</h1>
+          <h1>Basic syntax</h1>
         </section>
-        <section data-external="field_property.html" class="deck-slide"></section> <!-- Céline -->
-        <section data-external="class.html" class="deck-slide"></section> <!-- Abi --> <!--  Task 1, 2, 3  -->
-        <section data-external="object.html" class="deck-slide"></section> <!-- Abi -->
-        <section data-external="nullability.html" class="deck-slide"></section> <!-- Abi -->
-        <section data-external="function.html" class="deck-slide"></section> <!-- Céline -->
-        <section data-external="collection.html" class="deck-slide"></section> <!-- Abi -->
-        <section data-external="coercion.html" class="deck-slide"></section> <!-- Abi -->
-        <section data-external="delegation.html" class="deck-slide"></section> <!-- Abi --> <!--  Task 4  -->
-        <section data-external="destructuring.html" class="deck-slide"></section> <!-- Abi -->
+        <section
+          data-external="topic/field_property.html"
+          class="deck-slide"
+        ></section>
+        <!-- Céline -->
+        <section data-external="topic/class.html" class="deck-slide"></section>
+        <!-- Abi -->
+        <!--  Task 1, 2, 3  -->
+        <section data-external="topic/object.html" class="deck-slide"></section>
+        <!-- Abi -->
+        <section data-external="topic/nullability.html" class="deck-slide"></section>
+        <!-- Abi -->
+        <section data-external="topic/function.html" class="deck-slide"></section>
+        <!-- Céline -->
+        <section data-external="topic/collection.html" class="deck-slide"></section>
+        <!-- Abi -->
+        <section data-external="topic/coercion.html" class="deck-slide"></section>
+        <!-- Abi -->
+        <section data-external="topic/delegation.html" class="deck-slide"></section>
+        <!-- Abi -->
+        <!--  Task 4  -->
+        <section
+          data-external="topic/destructuring.html"
+          class="deck-slide"
+        ></section>
+        <!-- Abi -->
+      </div>
     </div>
-</div>
 
-<script src="../../lib/js/head.min.js"></script>
-<script src="../../js/reveal.js"></script>
-<script src="../../plugin/highlight/highlight.js"></script>
-<script src="../../js/initialize.js"></script>
-</body>
+    <script src="../../dist/reveal.js"></script>
+    <script src="../../plugin/highlight/highlight.js"></script>
+    <script src="../../plugin/zoom/zoom.js"></script>
+    <script src="../../plugin/notes/notes.js"></script>
+    <script src="../../plugin/search/search.js"></script>
+    <script src="../../plugin/markdown/markdown.js"></script>
+    <script>
+      Reveal.initialize({
+        plugins: [RevealNotes, RevealHighlight, RevealZoom, RevealMarkdown],
+        dependencies: [
+            {
+                src: '../../plugin/external/external.js', 
+                condition: function() { 
+                    return !!document.querySelector( '[data-external],[data-external-replace]' ); 
+                }
+            }
+        ]
+      });
+    </script>
+  </body>
 </html>

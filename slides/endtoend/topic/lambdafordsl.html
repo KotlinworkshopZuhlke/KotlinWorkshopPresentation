@@ -1,11 +1,12 @@
 <!--suppress HtmlUnknownTarget -->
-<script src="../../js/initialize.js"></script>
 
 <section class="white">
-    <h3>Call function with lambda argument</h3>
-    <p>If the last argument of a function is a lambda, when the function is called,
-    the lambda can be moved outside of the parenthesis</p>
-    <pre>
+  <h3>Call function with lambda argument</h3>
+  <p>
+    If the last argument of a function is a lambda, when the function is called,
+    the lambda can be moved outside of the parenthesis
+  </p>
+  <pre>
         <code class="kotlin" data-trim contenteditable data-noescape>
 //function that takes as an argument an int and a lambda
 fun isValid(value: Int, validator: (Int) -> Boolean): Boolean {
