@@ -89,10 +89,6 @@
     background-size: contain;
 }
 
-.reveal .slides section {
-    padding: 0;
-}
-
 .reveal .slides section h1, .reveal .slides section h2, .reveal .slides section h3 {
     font-weight: 800 !important;
 }

@@ -7,21 +7,11 @@
     <title>End-to-End Example</title>
 
     <link rel="icon" href="../../img/zuehlke_logo.jpg">
-    <link rel="stylesheet" href="../../css/reveal.css">
+    <link rel="stylesheet" href="../../dist/reveal.css">
     <link rel="stylesheet" href="../../css/theme/zuehlke.css">
 
     <!-- Theme used for syntax highlighting of code -->
-    <link rel="stylesheet" href="../../lib/css/atom-one-dark.css">
-
-    <!-- Printing and PDF exports -->
-    <script>
-        var link = document.createElement('link');
-        link.rel = 'stylesheet';
-        link.type = 'text/css';
-        link.href = window.location.search.match(/print-pdf/gi) ? '../../css/print/pdf.css' : '../../css/print/paper.css';
-        document.getElementsByTagName('head')[0].appendChild(link);
-    </script>
-    <script src="../../js/initialize.js"></script>
+    <link rel="stylesheet" href="../../plugin/highlight/monokai.css">
 </head>
 <body>
 <div class="reveal">
@@ -29,16 +19,31 @@
         <section class="deck-slide">
             <h1>Kotlin Spring Boot</h1>
         </section>
-        <section data-external="springbootexercises.html" class="deck-slide"></section>
-        <section data-external="testlibraries.html" class="deck-slide"></section>
-        <section data-external="jpa.html" class="deck-slide"></section>
-        <section data-external="lambdafordsl.html" class="deck-slide"></section>
+        <section data-external="topic/springbootexercises.html" class="deck-slide"></section>
+        <section data-external="topic/testlibraries.html" class="deck-slide"></section>
+        <section data-external="topic/jpa.html" class="deck-slide"></section>
+        <section data-external="topic/lambdafordsl.html" class="deck-slide"></section>
     </div>
 </div>
 
-<script src="../../lib/js/head.min.js"></script>
-<script src="../../js/reveal.js"></script>
+<script src="../../dist/reveal.js"></script>
 <script src="../../plugin/highlight/highlight.js"></script>
-<script src="../../js/initialize.js"></script>
+<script src="../../plugin/zoom/zoom.js"></script>
+<script src="../../plugin/notes/notes.js"></script>
+<script src="../../plugin/search/search.js"></script>
+<script src="../../plugin/markdown/markdown.js"></script>
+<script>
+  Reveal.initialize({
+    plugins: [RevealNotes, RevealHighlight, RevealZoom, RevealMarkdown],
+    dependencies: [
+        {
+            src: '../../plugin/external/external.js', 
+            condition: function() { 
+                return !!document.querySelector( '[data-external],[data-external-replace]' ); 
+            }
+        }
+    ]
+  });
+</script>
 </body>
 </html>

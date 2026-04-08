@@ -1,41 +1,40 @@
 <!--suppress HtmlUnknownTarget -->
-<script src="../../js/initialize.js"></script>
 
 <section class="white">
-    <h3>Collections</h3>
+  <h3>Collections</h3>
 </section>
 
 <section class="white">
-    <h4>List</h4>
-    <pre><code class="kotlin" data-trim>
+  <h4>List</h4>
+  <pre><code class="kotlin" data-trim>
 val immutableList = listOf(2, 3) // Immutable list
 val mutableList = mutableListOf&lt;Int&gt;() // Mutable list
     </code></pre>
 </section>
 
 <section class="white">
-    <h4>Set</h4>
-    <pre><code class="kotlin" data-trim>
+  <h4>Set</h4>
+  <pre><code class="kotlin" data-trim>
 val immutableSet = setOf(2, 3) // Immutable set
 val mutableSet = mutableSetOf&lt;Int&gt;() // Mutable set
     </code></pre>
 </section>
 
 <section class="white">
-    <h4>Map</h4>
-    <pre><code class="kotlin" data-trim>
+  <h4>Map</h4>
+  <pre><code class="kotlin" data-trim>
 val immutableMap = mapOf("Hello" to "Hallo", "Bye" to "Tschüss") // Immutable map
 val mutableMap = mutableMapOf<&lt;String, String&gt;() // Mutable map
     </code></pre>
 </section>
 
 <section class="white">
-    <h3>Useful Functions on Collections</h3>
+  <h3>Useful Functions on Collections</h3>
 </section>
 
 <section class="white">
-    <h4>forEach { ... }</h4>
-    <pre><code class="kotlin" data-trim>
+  <h4>forEach { ... }</h4>
+  <pre><code class="kotlin" data-trim>
 val numbers = listOf("one", "two", "three", "four")
 numbers.forEach {
     println(it)
@@ -44,16 +43,16 @@ numbers.forEach {
 </section>
 
 <section class="white">
-    <h4>map { ... }</h4>
-    <pre><code class="kotlin" data-trim>
+  <h4>map { ... }</h4>
+  <pre><code class="kotlin" data-trim>
 val numbers = setOf(1, 2, 3)
 println(numbers.map { it * 3 }) // prints [3, 6, 9]
     </code></pre>
 </section>
 
 <section class="white">
-    <h4>filter { ... }</h4>
-    <pre><code class="kotlin" data-trim>
+  <h4>filter { ... }</h4>
+  <pre><code class="kotlin" data-trim>
 val numbers = listOf("one", "two", "three", "four")
 val longerThan3 = numbers.filter { it.length > 3 }
 println(longerThan3) // prints [three, four]
@@ -61,11 +60,13 @@ println(longerThan3) // prints [three, four]
 </section>
 
 <section class="white">
-    <h3>Many More Useful Functions</h3>
-    <p>
-        For more information, visit the official Kotlin documentation:
-        <a href="https://kotlinlang.org/docs/reference/collection-transformations.html">
-            https://kotlinlang.org/docs/reference/collection-transformations.html
-        </a>
-    </p>
+  <h3>Many More Useful Functions</h3>
+  <p>
+    For more information, visit the official Kotlin documentation:
+    <a
+      href="https://kotlinlang.org/docs/reference/collection-transformations.html"
+    >
+      https://kotlinlang.org/docs/reference/collection-transformations.html
+    </a>
+  </p>
 </section>

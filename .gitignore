@@ -7,3 +7,14 @@
 
 # Node
 node_modules
+
+# build
+**/build/
+
+*.iws
+*.eml
+out/
+.svn
+log/*.log
+tmp/**
+.sass-cache
